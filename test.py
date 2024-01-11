@@ -1,16 +1,21 @@
-def ordenar(dado):
-    cont = 0
-    for passnum in range(len(dado)-1, 0, -1):
-        for i in range(passnum):
-            if dado[i] > dado[i + 1]:
-                temp = dado[i]
-                dado[i] = dado[i + 1]
-                dado[i + 1] = temp
-                cont += 1
-    return cont
+import mysql.connector as sql
 
-dado = [16, 18, 15, 37, 13]
+db = sql.connect(
+    host ='localhost',
+    user ='root',
+    password ='',
+    database ='cadastro'
+)
 
-contador = ordenar(dado)
-print(dado)
-print(contador)
+mycursor = db.cursor()
+
+# mycursor.execute("CREATE TABLE Person (name varchar(30), age smallint UNSIGNED, personID int PRIMARY KEY auto_increment)")
+
+mycursor.execute("insert into person (name, age) values(%s, %s)", ("Joao", 20))
+#db.commit()
+# mycursor.execute()
+
+mycursor.execute("select * from person")
+
+for x in mycursor:
+    print(x)
