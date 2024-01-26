@@ -14,6 +14,7 @@ document.getElementById("logout").addEventListener("click", function() {
     window.location.href = "login.html";
 });
 
+
 function mostrarSenha() {
     var senhaInput = document.getElementById("senha");
     var eyeIcon = document.getElementById("eye");
@@ -28,3 +29,8 @@ function mostrarSenha() {
         eyeIcon.classList.add("fa-eye");
     }
 }
+
+
+function redirectToMain() {
+    return true; 
+  }
