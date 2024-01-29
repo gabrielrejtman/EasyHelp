@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 const app = express();
-const port = 3300 // substituir por porta usada no servidor local
 app.use(express.static('public'));
 
 
@@ -39,18 +38,20 @@ app.get('/cadastro', (req, res) => {
 });
 
 app.post('/cadastro', (req, res) => {
-
     const dadosCadastro = req.body
     console.log(req.body)
 
     if (verificarSeMatriculaValida(res, req, dadosCadastro)){
         cadastrarADM(res, req, dadosCadastro)
+        renderizarMenu(res, dadosCadastro['nome'])
     }
 })
 
 
+// Cadastro
 function verificarSeMatriculaValida(res, req, dadosCadastro){
     let valida = true
+
     const verificaMatriculaSql = 'SELECT COUNT(*) AS count FROM Administrador WHERE matricula_adm = ?'
     connection.query(verificaMatriculaSql, [dadosCadastro['matricula']], (err, result) => {
 
@@ -82,6 +83,7 @@ function cadastrarADM(res, req, dadosUsuario) {
     const hashSenha = bcrypt.hashSync(dadosUsuario['senha'], salt)
 
     // Inserir dados no banco de dados
+    let cadastradoComSucesso = false
     const sql = 'INSERT INTO Administrador (nome, matricula_adm, cargo, senha_adm_hash) VALUES (?, ?, ?, ?)'
 
 
@@ -93,9 +95,11 @@ function cadastrarADM(res, req, dadosUsuario) {
         }
 
         else {
-            sucessoCadastrarADM(res, nome)
+            console.log('Administrador cadastrado com sucesso!')
+            cadastradoComSucesso = true
         }
     })
+    return cadastradoComSucesso
 }
 
 function erroCadastrarADM(err, res){
@@ -103,19 +107,61 @@ function erroCadastrarADM(err, res){
     res.status(500).send('Erro ao cadastrar administrador')
 }
 
-function sucessoCadastrarADM(res, nome){
-    console.log('Administrador cadastrado com sucesso!')
+// Login
+app.get('/login', (req, res) => {
+    res.render('login');
+})
+
+app.post('/login', (req, res) =>{
+    const dadosLogin = req.body;
+    console.log(dadosLogin)
+
+    connection.connect((err) => {
+        if (err) {
+            console.error('Erro ao conectar ao banco de dados:', err);
+            return;
+        }
+        console.log('Conexão bem-sucedida ao banco de dados');
+    });
+
+
+    const selectUserQuery = 'SELECT * FROM administrador WHERE matricula_ADM = ?';
+
+    connection.query(selectUserQuery, [dadosLogin['matricula']], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            return;
+        }
+
+
+        if (results.length > 0) {
+            const usuario = results[0];
+            console.log('Usuário encontrado:', usuario);
+
+        }
+        else {
+            console.log('Usuário não encontrado');
+        }
+
+        // Encerre a conexão após a consulta
+        connection.end();
+    });
+})
+
+
+// Menu
+
+function renderizarMenu(res, nome){
     // Redirecionar para a página 'inserir_problema.ejs'
     res.render('inserir_problema', { nome })
 }
 
 
-app.get('/login', (req, res) => {
-    res.render('login');
-})
+
 
 
 // Iniciar o servidor
+const port = 3300 // substituir por porta usada no servidor local
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`)
 })
