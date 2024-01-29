@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 const app = express();
-const port = 3300; // substituir por porta usada no servidor local
+const port = 3300 // substituir por porta usada no servidor local
 app.use(express.static('public'));
 
 
@@ -38,20 +38,21 @@ app.get('/cadastro', (req, res) => {
     res.render('cadastro');
 });
 
-// Rota para processar o formulário de cadastro
 app.post('/cadastro', (req, res) => {
 
-    const {nome, matricula, cargo, senha} = req.body
+    const dadosCadastro = req.body
+    console.log(req.body)
 
-    if (verificarSeMatriculaValida(res, req, nome, matricula, cargo, senha)){
-        cadastrarADM(res, req, nome, matricula, cargo, senha)
+    if (verificarSeMatriculaValida(res, req, dadosCadastro)){
+        cadastrarADM(res, req, dadosCadastro)
     }
 })
 
-function verificarSeMatriculaValida(res, req, nome, matricula, cargo, senha){
+
+function verificarSeMatriculaValida(res, req, dadosCadastro){
     let valida = true
     const verificaMatriculaSql = 'SELECT COUNT(*) AS count FROM Administrador WHERE matricula_adm = ?'
-    connection.query(verificaMatriculaSql, [matricula], (err, result) => {
+    connection.query(verificaMatriculaSql, [dadosCadastro['matricula']], (err, result) => {
 
         if (err) {
             erroVerificarMatricula(res, err)
@@ -72,18 +73,21 @@ function erroVerificarMatricula(res, err){
     res.status(500).send('Erro ao verificar matrícula');
 }
 
-function cadastrarADM(res, req, nome, matricula, cargo, senha) {
+function cadastrarADM(res, req, dadosUsuario) {
     // Gerar um "sal" (um valor aleatório)
     const saltRounds = 10
     const salt = bcrypt.genSaltSync(saltRounds)
 
     // Hash da senha com o sal
-    const hashSenha = bcrypt.hashSync(senha, salt)
+    const hashSenha = bcrypt.hashSync(dadosUsuario['senha'], salt)
 
     // Inserir dados no banco de dados
     const sql = 'INSERT INTO Administrador (nome, matricula_adm, cargo, senha_adm_hash) VALUES (?, ?, ?, ?)'
 
-    connection.query(sql, [nome, matricula, cargo, hashSenha], (err, result) => {
+
+    connection.query(sql, [dadosUsuario['nome'], dadosUsuario['matricula'],
+        dadosUsuario['cargo'], hashSenha], (err) => {
+
         if (err) {
             erroCadastrarADM(err, res)
         }
@@ -91,7 +95,7 @@ function cadastrarADM(res, req, nome, matricula, cargo, senha) {
         else {
             sucessoCadastrarADM(res, nome)
         }
-    });
+    })
 }
 
 function erroCadastrarADM(err, res){
@@ -108,8 +112,10 @@ function sucessoCadastrarADM(res, nome){
 
 app.get('/login', (req, res) => {
     res.render('login');
-});
+})
 
+
+// Iniciar o servidor
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+    console.log(`Servidor rodando em http://localhost:${port}`)
+})
