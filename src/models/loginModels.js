@@ -1,17 +1,8 @@
 const connection = require('./connection');
 
-const getDataUser = (req, res) => {
-    const dadosLogin = req.body;
+const getDataUser = async (req, res) => {
+    const dadosLogin = await req.body;
     console.log(dadosLogin)
-
-    connection.connect((err) => {
-        if (err) {
-            console.error('Erro ao conectar ao banco de dados:', err);
-            return;
-        }
-        console.log('Conexão bem-sucedida ao banco de dados');
-    });
-
 
     const selectUserQuery = 'SELECT * FROM administrador WHERE matricula_ADM = ?';
 
