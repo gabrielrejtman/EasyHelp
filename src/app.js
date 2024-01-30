@@ -31,14 +31,6 @@ app.use(router);
     app.use(express.json()); // Adicionando middleware para suportar JSON no corpo da solicitação
     app.use(express.static('public'));
 
-
-
-
-// Rota para a página de cadastro
-app.get('/cadastro', (req, res) => {
-    res.render('cadastro');
-});
-
 app.post('/cadastro', (req, res) => {
     const dadosCadastro = req.body
     console.log(req.body)
@@ -108,13 +100,6 @@ function erroCadastrarADM(err, res){
     console.error('Erro ao cadastrar administrador:', err)
     res.status(500).send('Erro ao cadastrar administrador')
 }
-
-// Login
-app.get('/login', (req, res) => {
-    res.render('login');
-})
-
-
 
 
 // Menu
