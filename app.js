@@ -43,7 +43,7 @@ app.post('/cadastro', (req, res) => {
 
     if (verificarSeMatriculaValida(res, req, dadosCadastro)){
         cadastrarADM(res, req, dadosCadastro)
-        renderizarMenu(res, dadosCadastro['nome'])
+        renderizarMenu(res)
     }
 })
 
@@ -137,6 +137,7 @@ app.post('/login', (req, res) =>{
         if (results.length > 0) {
             const usuario = results[0];
             console.log('Usuário encontrado:', usuario);
+            renderizarMenu(res)
 
         }
         else {
@@ -149,14 +150,65 @@ app.post('/login', (req, res) =>{
 })
 
 
-// Menu
+// Cadastrar Problema
+app.get('/cadastrar_problema', (req, res) =>{
+    res.render('cadastrar_problema')
+})
 
-function renderizarMenu(res, nome){
-    // Redirecionar para a página 'inserir_problema.ejs'
-    res.render('inserir_problema', { nome })
+app.post('/cadastrar_problema', (req, res) => {
+    const dadosProblema = req.body
+    console.log(dadosProblema)
+
+    cadastrarProblema(res, req, dadosProblema)
+
+
+})
+
+function cadastrarProblema(res, req, dadosProblema) {
+    // Inserir dados no banco de dados
+    const sql = 'INSERT INTO problema (titulo, descricao, dificuldade, categoria) VALUES (?, ?, ?, ?)'
+
+
+    connection.query(sql, [dadosProblema['titulo'], dadosProblema['descricao'],
+        dadosProblema['dificuldade'], dadosProblema['categoria']], (err) => {
+
+        if (err) {
+            console.log('erro cadastro de problema')
+        }
+
+        else {
+            console.log('Problema cadastrado com sucesso!')
+        }
+    })
 }
 
 
+// Menu
+function renderizarMenu(res){
+
+    const problemsQuery = 'SELECT * FROM problema'
+    const getProblems = () => {
+        return new Promise((resolve, reject) => {
+            connection.query(problemsQuery, (err, results) => {
+                if (err) {
+                    reject(err)
+                }
+                else {
+                    resolve(results)
+                }
+                connection.end()
+            })
+        })
+    }
+
+    getProblems().then((problems) => {
+            console.log(problems)
+            res.render('inserir_problema', { problems });
+        }).catch((err) => {
+            console.error('Erro ao executar a consulta:', err)
+            res.render('inserir_problema', { problems: [] })
+        })
+}
 
 
 
