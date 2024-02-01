@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch --no-warnings src/app.js"
+    "dev": "node --watch --no-warnings src/server.js"
   },
   "keywords": [],
   "author": "",

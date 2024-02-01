@@ -1,7 +1,7 @@
 const loginModels = require('../models/loginModels');
 
-const getDataUser = async (req, res) => {
-   const dataUser = await loginModels.getDataUser(req, res);
+const getDataUser = (req, res) => {
+   const dataUser = loginModels.getDataUser(req, res);
 
    return res.status(200).json(dataUser);
 }
