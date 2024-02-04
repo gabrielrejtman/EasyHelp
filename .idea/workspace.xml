@@ -5,25 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c4b3356-7ffe-481f-bc5d-dc3de6c10c7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Back/src/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back/src/controllers/cadastroProblmemaController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back/src/controllers/menuController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back/src/models/cadastroProblemaModels.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Back/src/models/menuModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD_EASYHELP.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyhelp.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylecadastro.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylelogin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/cadastrar_problema.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/cadastro.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/inserir_problema.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/login.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/color-support.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/color-support.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/ejs.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/ejs.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/jake.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/jake.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/mime.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/mime.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/mkdirp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/mkdirp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/node-pre-gyp.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/node-pre-gyp.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/node.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/node.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/nopt.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/nopt.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/rimraf.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/rimraf.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/.bin/semver.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/.bin/semver.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/bcrypt/appveyor.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/bcrypt/appveyor.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/color-name/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/color-name/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/color-name/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/color-name/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/color-name/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/color-name/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/color-name/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/color-name/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/make-dir/node_modules/.bin/semver.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/make-dir/node_modules/.bin/semver.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/node/node_modules/.bin/node.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/node/node_modules/.bin/node.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/node_modules/whatwg-url/lib/url-state-machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/node_modules/whatwg-url/lib/url-state-machine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/controllers/cadastroController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/controllers/cadastroController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/controllers/cadastroProblmemaController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/controllers/cadastroProblmemaController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/controllers/loginController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/controllers/loginController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/controllers/menuController.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/controllers/menuController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/models/cadastroModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/models/cadastroModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/models/cadastroProblemaModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/models/cadastroProblemaModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/models/loginModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/models/loginModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/models/menuModels.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/models/menuModels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Back/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/views/cadastrar_problema.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/Back/views/cadastrar_problema.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back/views/menu.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/Back/views/menu.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +111,9 @@
       <workItem from="1706710449813" duration="1322000" />
       <workItem from="1706711850041" duration="1827000" />
       <workItem from="1706816545311" duration="12150000" />
-      <workItem from="1706829527432" duration="302000" />
+      <workItem from="1706829527432" duration="8459000" />
+      <workItem from="1706883932873" duration="105000" />
+      <workItem from="1707003783465" duration="10478000" />
     </task>
     <servers />
   </component>

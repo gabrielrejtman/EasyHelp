@@ -49,20 +49,6 @@
                     </a>
                 </li>
             </ul>
-            
-
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Dark Mode</span>
-                    </a>
-
-                    <!-- Dark Mode -->
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </ul>
         </div>
     </nav>
 
@@ -99,8 +85,11 @@
 
     <ul>
         <% problems.forEach((problem) => { %>
+
             <h3><%= problem.titulo %></h3>
             <p><%= problem.descricao %></p>
+        <hr>
+
         <% }) %>
     </ul>
     <!-- JavaScript -->

@@ -5,11 +5,10 @@ function cadastrarProblema(req, res) {
     const sql = 'INSERT INTO problema (titulo, descricao, dificuldade, categoria) VALUES (?, ?, ?, ?)'
     console.log(dadosProblema)
 
-    connection.query(sql, [dadosProblema['titulo'], dadosProblema['descricao'],
-        dadosProblema['dificuldade'], dadosProblema['categoria']], (err) => {
+    connection.query(sql, Object.values(dadosProblema), (err) => {
 
         if (err) {
-            console.log('erro cadastro de problema')
+            console.log('erro no cadastro de Problema')
         }
 
         else {

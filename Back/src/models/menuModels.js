@@ -1,25 +1,20 @@
-const connection = require("./connection");
+const connection = require("./connection")
 
-function renderizarMenu(res){
+function getProblems(callback) {
     const problemsQuery = 'SELECT * FROM problema'
-    const getProblems = () => {
-        return new Promise((resolve, reject) => {
-            connection.query(problemsQuery, (err, results) => {
-                if (err) {
-                    reject(err)
-                }
-                else {
-                    resolve(results)
-                }
-            })
-        })
-    }
 
-    getProblems().then((problems) => {
-        res.render('menu', { problems })
+    connection.query(problemsQuery, (err, results) => {
+        if (err) {
+            console.error(err)
 
-    }).catch((err) => {console.error(err)
-    }).finally(() => {connection.end()})
+            callback(err, null)
+        }
+        else {
+            callback(null, results)
+        }
+    })
 }
 
-module.exports = {renderizarMenu}
+module.exports = {
+    getProblems
+};
