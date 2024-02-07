@@ -1,7 +1,7 @@
 const express = require('express');
 const loginController = require('./controllers/loginController');
 const cadastroController = require('./controllers/cadastroController');
-const cadastroProblemaController = require('./controllers/cadastroProblmemaController')
+const cadastroProblemaController = require('./controllers/cadastroProblemaController')
 const menuController = require('./controllers/menuController')
 
 

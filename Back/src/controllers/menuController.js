@@ -5,7 +5,7 @@ const renderMenuPage = (req, res) => {
         if (err) {
             return res.status(500).send('Erro ao obter os problemas: ' + err);
         }
-        res.render('menu', { problems });
+        res.status(201).json(problems);
     });
 };
 

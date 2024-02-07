@@ -1,15 +1,39 @@
 import "../index.css";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {IoMdSearch, IoIosAlert} from 'react-icons/io'
 import Cards from "./Cards";
+import axios from "axios"
 
 function BuscarProblema() {
+
+  let listaDeProblemas = []
+
+  const [problems, setProblems] = useState([]);
+  const [onEdit, setOnEdit] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // You can await here
+      const response = await loadProblems();
+      // ...
+    }
+    fetchData();
+  }, [])
+
+  async function loadProblems(){
+    
+    try{
+      const resp = await axios.get("http://localhost:3300/menu")
+      listaDeProblemas = resp.data
+      setProblems(listaDeProblemas)
+    }
+    catch(error){
+      console.log(JSON.stringify(error))
+    }
+  }
   
-  const listaDeProblemas = [{titulo: "A máquina não liga", categoria: "elétrico", dificuldade: "fácil",
-  descricao: "A máquina de nome tal de série tal apresenta tais características relacionadas ao seu funcionamento, porque o fornecedor dela vem de tal... "},
-  {titulo: "A máquina não liga2", categoria: "elétrico", dificuldade: "fácil",
-  descricao: "A máquina de nome tal de série tal apresenta tais características relacionadas ao seu funcionamento, porque o fornecedor dela vem de tal... "}]
-  
+
+
   return(
 
     <div className="ContainerBuscarProblema">
@@ -42,7 +66,7 @@ function BuscarProblema() {
       <div className="listaDeProblemas">
 
         <ul>
-          <Cards itens = {listaDeProblemas}/>
+          <Cards itens = {problems}/>
         </ul>
         
       </div>

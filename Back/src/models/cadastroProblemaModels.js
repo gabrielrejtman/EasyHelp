@@ -2,7 +2,7 @@ const connection = require('./connection')
 
 function cadastrarProblema(req, res) {
     const dadosProblema = req.body
-    const sql = 'INSERT INTO problema (titulo, descricao, dificuldade, categoria, arquivos) VALUES (?, ?, ?, ?, ?)'
+    const sql = 'INSERT INTO problema (titulo, descricao, dificuldade, categoria) VALUES (?, ?, ?, ?)'
     console.log(dadosProblema)
 
     connection.query(sql, [dadosProblema['titulo'], dadosProblema['descricao'],
@@ -16,9 +16,7 @@ function cadastrarProblema(req, res) {
     })
 }
 
-module.exports = {
-    cadastrarProblema
-}
+
 
 
 function readProblemas(req, res) {
@@ -35,9 +33,7 @@ function readProblemas(req, res) {
     });
 }
 
-module.exports = {
-    readProblemas
-};
+
 
 
 function updateProblema(req, res) {
@@ -56,9 +52,6 @@ function updateProblema(req, res) {
     });
 }
 
-module.exports = {
-    updateProblema
-};
 
 
 function deleteProblema(req, res) {
@@ -76,8 +69,8 @@ function deleteProblema(req, res) {
     });
 }
 
+
+
 module.exports = {
-    deleteProblema
-};
-
-
+    cadastrarProblema
+}
