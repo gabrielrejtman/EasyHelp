@@ -1,11 +1,9 @@
-const express = require('express');
-const loginController = require('./controllers/loginController');
-const cadastroController = require('./controllers/cadastroController');
+import * as express from 'express';
+import * as loginController from './controllers/loginController.js';
+import * as cadastroController from './controllers/cadastroController.js'
 
-const router = express.Router();
-router.use(express.urlencoded({ extended: true }));
-router.use(express.json()); // Adicionando middleware para suportar JSON no corpo da solicitação
-router.use(express.static('public'));
+
+export const router = express.Router();
 
 // Rota para a página de login
 router.get('/login', (req, res) => {
@@ -14,11 +12,16 @@ router.get('/login', (req, res) => {
 
 router.post('/login', loginController.getDataUser);
 
+
 // Rota para a página de cadastro
-router.get('/cadastro', (req, res) => {
-    res.render('cadastro');
-});
+router.get('/cadastro', cadastroController.getAllRegisters);
 
-router.post('/cadastro', cadastroController.getDataUser);
 
-module.exports = router;
+
+router.post('/cadastro', cadastroController.createRegister);
+
+router.delete('/cadastro/:matricula', cadastroController.deleteRegister);
+
+// Rota de autenticacao
+
+router.post('/authenticate', cadastroController.authenticateUser)

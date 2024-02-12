@@ -1,6 +1,17 @@
-const connection = require('./connection');
+import { connection } from './connection.js';
 
-const getDataUser = async (req, res) => {
+
+export const findLogin = async (login) => {
+    const { matricula } = login;
+
+    const query = 'SELECT * FROM administrador WHERE matricula_ADM = ?';
+
+    const [createdLogin] = await connection.execute(query, [matricula]);
+
+    return createdLogin;
+}
+
+export const getDataUser = async (req, res) => {
     const dadosLogin = await req.body;
     console.log(dadosLogin)
 
@@ -16,18 +27,37 @@ const getDataUser = async (req, res) => {
         if (results.length > 0) {
             const usuario = results[0];
             console.log('Usuário encontrado:', usuario);
+            renderizarMenu();
 
         }
         else {
             console.log('Usuário não encontrado');
         }
 
-        // Encerre a conexão após a consulta
-        connection.end();
     });
 };
 
+function renderizarMenu(res){
+    const problemsQuery = 'SELECT * FROM problema'
+    const getProblems = () => {
+        return new Promise((resolve, reject) => {
+            connection.query(problemsQuery, (err, results) => {
+                if (err) {
+                    reject(err)
+                }
+                else {
+                    resolve(results)
+                }
+                connection.end()
+            })
+        })
+    }
 
-module.exports = {
-    getDataUser
-};
+    getProblems().then((problems) => {
+            console.log(problems)
+            res.render('inserir_problema', { problems });
+        }).catch((err) => {
+            console.error('Erro ao executar a consulta:', err)
+            res.render('inserir_problema', { problems: [] })
+        })
+}

@@ -1,102 +1,44 @@
-const connection = require('./connection');
-const bcrypt = require('bcrypt');
+import { connection } from './connection.js';
+import * as bcrypt from 'bcrypt';
 
-const getDataUser = (req, res) => {
-    const dadosCadastro = req.body
-    console.log(req.body)
 
-    if (verificarSeMatriculaValida(res, req, dadosCadastro)){
-        cadastrarADM(res, req, dadosCadastro);
-        renderizarMenu(res, dadosCadastro['nome']);
-    }
+export const getAllRegisters = async () => {
+    const [registers] = await connection.execute('SELECT * FROM administrador');
 
+    return registers;
 }
 
-// Cadastro
-function verificarSeMatriculaValida(res, req, dadosCadastro){
-    let valida = true
 
-    const verificaMatriculaSql = 'SELECT COUNT(*) AS count FROM administrador WHERE matricula_adm = ?'
-    connection.query(verificaMatriculaSql, [dadosCadastro['matricula']], (err, result) => {
+export const createRegister = async (register) => {
+    const { nome, matricula, cargo, senha } = register;
 
-        if (err) {
-            erroVerificarMatricula(res, err)
-            valida = false
-            return
-        }
-        // A matrícula já está cadastrada
-        if (result[0].count > 0){
-            res.render('cadastro', { erro: 'Matrícula já cadastrada. Por favor, insira uma matrícula válida.' });
-            valida = false
-        }
-    })
-    return valida
-}
-
-function erroVerificarMatricula(res, err){
-    console.error('Erro ao verificar matrícula:', err);
-    res.status(500).send('Erro ao verificar matrícula');
-}
-
-function cadastrarADM(res, req, dadosUsuario) {
-    // Gerar um "sal" (um valor aleatório)
-    const saltRounds = 10
-    const salt = bcrypt.genSaltSync(saltRounds)
+    const salt = bcrypt.genSaltSync(10);
 
     // Hash da senha com o sal
-    const hashSenha = bcrypt.hashSync(dadosUsuario['senha'], salt)
+    const hashSenha = bcrypt.hashSync(senha, salt)
 
     // Inserir dados no banco de dados
-    let cadastradoComSucesso = false
-    const sql = 'INSERT INTO administrador (nome, matricula_adm, cargo, senha_adm_hash) VALUES (?, ?, ?, ?)'
+    const query = 'INSERT INTO administrador (nome, matricula_adm, cargo, senha_adm_hash) VALUES (?, ?, ?, ?)';
 
+    const [createdRegister] = await connection.execute(query, [nome, matricula, cargo, hashSenha]);
 
-    connection.query(sql, [dadosUsuario['nome'], dadosUsuario['matricula'],
-        dadosUsuario['cargo'], hashSenha], (err) => {
-
-        if (err) {
-            erroCadastrarADM(err, res)
-        }
-
-        else {
-            console.log('Administrador cadastrado com sucesso!')
-            cadastradoComSucesso = true
-        }
-    })
-    return cadastradoComSucesso
+    return {createdRegister};
 }
 
-function erroCadastrarADM(err, res){
-    console.error('Erro ao cadastrar administrador:', err)
-    res.status(500).send('Erro ao cadastrar administrador')
+export const deleteRegister = async (matricula) => {
+
+    const query = 'DELETE FROM administrador WHERE matricula_adm = ?';
+    const [removedRegister] = await connection.execute(query, [matricula]);
+
+    return removedRegister;
 }
 
-function renderizarMenu(res){
-    const problemsQuery = 'SELECT * FROM problema'
-    const getProblems = () => {
-        return new Promise((resolve, reject) => {
-            connection.query(problemsQuery, (err, results) => {
-                if (err) {
-                    reject(err)
-                }
-                else {
-                    resolve(results)
-                }
-                connection.end()
-            })
-        })
-    }
+export const authenticateUser = async (id) => {
+    const { matricula, senha } = id;
 
-    getProblems().then((problems) => {
-            console.log(problems)
-            res.render('inserir_problema', { problems });
-        }).catch((err) => {
-            console.error('Erro ao executar a consulta:', err)
-            res.render('inserir_problema', { problems: [] })
-        })
+    const query = 'SELECT * FROM administrador WHERE matricula_adm AND senha_adm_hash = (?, ?)';
+
+    const [[user]] = await connection.execute(query, [matricula, senha]);
+
+    return user;
 }
-
-
-module.exports = {
-    getDataUser
-};

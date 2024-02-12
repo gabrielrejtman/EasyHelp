@@ -1,11 +1,9 @@
-const loginModels = require('../models/loginModels');
+import * as loginModels from '../models/loginModels.js';
 
-const getDataUser = (req, res) => {
-   const dataUser = loginModels.getDataUser(req, res);
+export const getDataUser = (req, res) => {
+   const createdLogin = loginModels.findLogin(req.body);
 
-   return res.status(200).json(dataUser);
+   return res.status(201).json(createdLogin);
 }
 
-module.exports = {
-    getDataUser
-};
+
