@@ -1,10 +1,11 @@
 import BuscarProblema from './components/BuscarProblema';
+import Ocorrencia from './components/Ocorrencia/Ocorrencia';
 import './index.css'
 
 function App() {
   return (
     <div className='container'>
-      <BuscarProblema/>
+      <Ocorrencia/>
     </div>
   );
 }
