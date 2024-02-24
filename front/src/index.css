@@ -4,24 +4,9 @@
   font-family: sans-serif;
 }
 
-.container{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding-top: 25px;
-  padding-left: 35px;
-  padding-right: 35px;
-}
-
 .path{
   color: #8A8B82;
   font-size: 16px;
-  font-weight: bold;
-}
-
-.titulo{
-  padding-top: 25px;
-  font-size: 32px;
   font-weight: bold;
 }
 
@@ -85,7 +70,7 @@
 .listaDeProblemas{
   margin-top: 15px;
   overflow: auto;
-  max-height: 400px;
+  height: 400px;
   max-width: 1100px;
   min-width: 800px;
 }

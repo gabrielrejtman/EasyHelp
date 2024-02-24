@@ -3,7 +3,8 @@ import React from 'react'
 function Cards({itens}) {
   return (
     <>
-        {itens.map((item) => (
+        {itens
+        .map((item) => (
             <div className="card">
                     
                 <div className="cardHead">
