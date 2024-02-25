@@ -1,19 +1,15 @@
-const connection = require('./connection')
+const connection = require('./connection');
+const { v4: uuidv4 } = require('uuid');
 
-function cadastrarProblema(req, res) {
-    const dadosProblema = req.body
-    const sql = 'INSERT INTO problema (titulo, descricao, dificuldade, categoria) VALUES (?, ?, ?, ?)'
-    console.log(dadosProblema)
 
-    connection.query(sql, [dadosProblema['titulo'], dadosProblema['descricao'],
-        dadosProblema['dificuldade'], dadosProblema['categoria']], (err) => {
+const cadastrarProblema = async (problema) =>  {
+    const { titulo, descricao, dificuldade, categoria } = problema
+    const id = uuidv4()
+    const query = 'INSERT INTO problema (id, titulo, descricao, dificuldade, categoria) VALUES (?, ?, ?, ?, ?)'
 
-        if (err) {
-            console.log('erro cadastro de problema')
-        }
+    const [result] = await connection.execute(query, [id, titulo, descricao, dificuldade, categoria]);
 
-        console.log('Problema cadastrado com sucesso!')
-    })
+    return result    
 }
 
 
@@ -72,5 +68,5 @@ function deleteProblema(req, res) {
 
 
 module.exports = {
-    cadastrarProblema
+    cadastrarProblema,
 }
