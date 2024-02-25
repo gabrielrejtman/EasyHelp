@@ -1,7 +1,9 @@
 const cadastroProblemaModels = require('../models/cadastroProblemaModels');
 
-const cadastrarProblema = (req, res) => {
-    cadastroProblemaModels.cadastrarProblema(req, res)
+const cadastrarProblema = async (req, res) => {
+    const result = await cadastroProblemaModels.cadastrarProblema(req.body)
+
+    res.status(201).json(result);
 }
 
 module.exports = {
