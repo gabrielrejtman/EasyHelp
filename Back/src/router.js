@@ -6,10 +6,6 @@ const menuController = require('./controllers/menuController')
 
 
 const router = express.Router();
-router.use(express.urlencoded({ extended: true }));
-router.use(express.json()); // Adicionando middleware para suportar JSON no corpo da solicitação
-router.use(express.static('public'));
-
 
 
 
@@ -44,7 +40,7 @@ router.get('/cadastrar_problema', (req, res) =>{
     res.render('cadastrar_problema')
 })
 
-router.post('/cadastrar_problema', (req, res) => cadastroProblemaController.cadastrarProblema(req, res))
+router.post('/cadastrar_problema', cadastroProblemaController.cadastrarProblema)
 
 
 
