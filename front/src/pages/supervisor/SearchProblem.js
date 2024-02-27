@@ -22,7 +22,7 @@ function SearchProblem() {
   async function loadProblems(){
     
     try{
-      const resp = await axios.get("http://localhost:3300/menu")
+      const resp = await axios.get("http://localhost:3300/cadastrar_problema")
       listaDeProblemas = resp.data
       setProblems(listaDeProblemas)
     }
