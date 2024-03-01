@@ -1,9 +1,9 @@
-import "../../index.css";
+import "./styles.css";
 import React, { useEffect, useState } from 'react'
 import {IoMdSearch, IoIosAlert} from 'react-icons/io'
-import Cards from "../../components/Cards";
+import Cards from "../../../components/Cards";
 import axios from "axios"
-import {Title, Page} from "../../components/GlobalComponents.style"
+import {Title, Page} from "../../../components/GlobalComponents.style"
 
 function SearchProblem() {
 
@@ -45,7 +45,7 @@ function SearchProblem() {
         </button>
         
         <input type="text" placeholder="Digite o problema" 
-        maxLength="200" onChange={(e)=>setSearch(e.target.value)}/>
+        maxLength={200} onChange={(e)=>setSearch(e.target.value)}/>
       
       </div>
 
@@ -63,7 +63,7 @@ function SearchProblem() {
       <div className="listaDeProblemas">
 
         <ul>
-          <Cards itens = {problems}/>
+          {/*<Cards itens = {problems}/>*/}
         </ul>
         
       </div>

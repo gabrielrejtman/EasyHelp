@@ -16,3 +16,9 @@ export const Path = styled.p`
     font-size: 12px;
     font-weight: bold;
 `
+
+export const Layout = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+`

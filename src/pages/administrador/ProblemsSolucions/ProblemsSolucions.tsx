@@ -67,7 +67,7 @@ function ProblemsSolucions() {
             </button>
 
             <input type="text" placeholder="Digite o problema" 
-            maxLength="200" />
+            maxLength={200} />
 
           </div>
           
