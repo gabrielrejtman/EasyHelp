@@ -9,6 +9,66 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Problema {
+  id_problema String        @id @default(uuid())
+  titulo      String
+  descricao   String
+  categoria   String
+  dificuldade String
+  createdAt   DateTime      @default(now())
+  id_admin    String
+  adm         Administrador @relation(fields: [id_admin], references: [matricula_adm])
+  Ocorrencia  Ocorrencia[]
+
+  @@map("problemas")
+}
+
+model Supervisor {
+  matricula_supervisor String       @unique
+  nome                 String
+  setor                String
+  senha                String
+  Ocorrencia           Ocorrencia[]
+
+  @@map("supervisores")
+}
+
+model Administrador {
+  matricula_adm String     @unique
+  nome          String
+  cargo         String
+  senha         String
+  problemas     Problema[]
+
+  @@map("administrador")
+}
+
+model Tecnico {
+  matricula_tecnico String @unique
+  cargo             String
+  nome              String
+  categoria         String
+  senha             String
+
+  @@map("tecnicos")
+}
+
+model Ocorrencia {
+  id_ocorrencia  String     @id @default(uuid())
+  createdAt      DateTime   @default(now())
+  fim_ocorrencia DateTime
+  descricao      String
+  status         String
+  avaliacao      Int
+  prioridade     String
+  id_supervisor  String
+  id_prob        String
+  supervisor     Supervisor @relation(fields: [id_supervisor], references: [matricula_supervisor])
+  problema       Problema   @relation(fields: [id_prob], references: [id_problema])
+
+  @@map("ocorrencias")
 }
