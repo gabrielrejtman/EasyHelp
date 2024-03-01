@@ -13,62 +13,55 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Problema {
-  id_problema String        @id @default(uuid())
-  titulo      String
-  descricao   String
-  categoria   String
-  dificuldade String
-  createdAt   DateTime      @default(now())
-  id_admin    String
-  adm         Administrador @relation(fields: [id_admin], references: [matricula_adm])
-  Ocorrencia  Ocorrencia[]
+model Problem {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  category    String
+  difficulty  String
+  createdAt   DateTime @default(now())
 
-  @@map("problemas")
+  @@map("problems")
 }
 
 model Supervisor {
-  matricula_supervisor String       @unique
-  nome                 String
-  setor                String
-  senha                String
-  Ocorrencia           Ocorrencia[]
+  id       String @unique
+  name     String
+  sector   String
+  password String
 
-  @@map("supervisores")
+  @@map("supervisors")
 }
 
-model Administrador {
-  matricula_adm String     @unique
-  nome          String
-  cargo         String
-  senha         String
-  problemas     Problema[]
+model Admin {
+  id       String @unique
+  name     String
+  role     String
+  password String
 
-  @@map("administrador")
+  @@map("admin")
 }
 
-model Tecnico {
-  matricula_tecnico String @unique
-  cargo             String
-  nome              String
-  categoria         String
-  senha             String
+model Specialist {
+  id       String @unique
+  role     String
+  name     String
+  category String
+  password String
 
-  @@map("tecnicos")
+  @@map("specialists")
 }
 
-model Ocorrencia {
-  id_ocorrencia  String     @id @default(uuid())
-  createdAt      DateTime   @default(now())
-  fim_ocorrencia DateTime
-  descricao      String
+model Order {
+  id             String   @id @default(uuid())
+  createdAt      DateTime @default(now())
+  finalUpdatedAt DateTime
+  description    String
   status         String
-  avaliacao      Int
-  prioridade     String
+  rating         Int
+  priority       String
   id_supervisor  String
   id_prob        String
-  supervisor     Supervisor @relation(fields: [id_supervisor], references: [matricula_supervisor])
-  problema       Problema   @relation(fields: [id_prob], references: [id_problema])
 
-  @@map("ocorrencias")
+  @@map("orders")
 }
