@@ -1,0 +1,18 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db-mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+
+    container_name: db-mysql-easyhelp
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db-mysql:
