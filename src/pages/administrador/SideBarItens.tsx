@@ -7,9 +7,6 @@ const side_bar_pages = [
     {
         name: "Home",
         url: "home",
-<<<<<<< Updated upstream
-        icon: <TbCalendar size={22} color="#000"/>
-=======
         icon: <TbCalendar size={22} color="#ffff"/>
     },
     {
@@ -26,7 +23,6 @@ const side_bar_pages = [
         name: "Usuários",
         url: "users",
         icon: <TbCalendar size={22} color="#ffff"/>
->>>>>>> Stashed changes
     },
   ]
 

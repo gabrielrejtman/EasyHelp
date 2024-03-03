@@ -1,9 +1,5 @@
 import React, { useRef } from 'react'
-<<<<<<< Updated upstream
 import './styles.css'
-=======
-import '../Home/styles.css'
->>>>>>> Stashed changes
 import {Page, Path, Title } from '../../../components/GlobalComponents.style'
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
