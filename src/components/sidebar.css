@@ -1,27 +1,46 @@
+<<<<<<< Updated upstream
 .sidebar-container{
     background-color: white;
     width: 300px;
+=======
+.sidebar-container {
+    width: 250px;
+>>>>>>> Stashed changes
     height: 100%;
     background-color: #1E1F28;
     padding: 20px;
 }
+<<<<<<< Updated upstream
 .content{
+=======
+
+.content {
+>>>>>>> Stashed changes
     background-color: #EDE4FF;
     width: 100%;
     height: 100%;
 }
 
+<<<<<<< Updated upstream
 .nav-list{
+=======
+.nav-list {
+>>>>>>> Stashed changes
     height: 100%;
     width: 100%;
     padding: 0;
 }
 
+<<<<<<< Updated upstream
 .nav-link:hover{
+=======
+.nav-link:hover {
+>>>>>>> Stashed changes
     cursor: pointer;
     background-color: #CAF2EF;
 }
 
+<<<<<<< Updated upstream
 .nav-link .icon-text{
     color: black;
     flex: 70%;
@@ -29,24 +48,50 @@
 .nav-link .nav-link-icon{
     all: unset;
     flex: 30%;
+=======
+.nav-link .icon-text {
+    color: white;
+    flex: 1; /* Adjusted flex value */
+    margin: 10px;
+}
+
+.nav-link .nav-link-icon {
+    all: unset;
+>>>>>>> Stashed changes
     display: grid;
     place-items: center;
     color: black;
 }
 
+<<<<<<< Updated upstream
 .nav-link{
     text-decoration: none; 
     width: 100%;
     height: 50px;
     list-style-type: none;
     margin: 0%;
+=======
+.nav-link {
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    list-style-type: none;
+    margin: 1%; /* Reduced margin */
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
+<<<<<<< Updated upstream
 a.active{
     background-color: #51D6CA;
     font-weight: 500;
 }
+=======
+a.active {
+    background-color: #51D6CA;
+    font-weight: 500;
+}
+>>>>>>> Stashed changes

@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< Updated upstream
 import './styles.css'
+=======
+import '../Problems/styles.css'
+>>>>>>> Stashed changes
 import { useEffect, useState } from 'react'
 import { Page, Path, Title } from '../../../components/GlobalComponents.style'
 import {IoMdSearch, IoIosAlert} from 'react-icons/io'
