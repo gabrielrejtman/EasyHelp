@@ -1,7 +1,7 @@
 import "./styles.css";
 import React, { useEffect, useState } from 'react'
 import {IoMdSearch, IoIosAlert} from 'react-icons/io'
-import Cards from "../../../components/Cards";
+import Cards from "../../../components/Cards/Cards";
 import axios from "axios"
 import {Title, Page} from "../../../components/GlobalComponents.style"
 

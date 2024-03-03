@@ -101,8 +101,8 @@ const Problems: React.FC = () => {
     };
 
     return (
-        <div>
-            <Page>
+        <Page>
+            <div>
                 <Path>Home</Path>
                 <Title>Problemas e soluções</Title>
 
@@ -134,8 +134,8 @@ const Problems: React.FC = () => {
 
 
                 <ProblemsList problems={problems} />
-            </Page>
-        </div>
+            </div>
+        </Page>
     );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import './sidebar.css'
-import diderotLogo from '../assets/DiderotLogo.svg';
+import diderotLogo from '../../assets/DiderotLogo.svg';
 import { FaUserCircle } from "react-icons/fa";
 
 export interface SidebarItem{
@@ -15,14 +15,21 @@ interface IProps{
 }
 
 function Sidebar({items}:IProps) {
+  const user = {name: "Pedro Gama", role: "Administrador"}
 
   return (
     <div>
         <div className='sidebar-container'>
-          <img src={diderotLogo} alt="Diderot Logo" />
+          <img src={diderotLogo} className='logo' />
+          
           <div className='user-container'>
-            <FaUserCircle />
+            <FaUserCircle size={40}/>
+            <div className='user-information'>
+              <p className='user-name'>{user.name}</p>
+              <p className='user-role'>{user.role}</p>
+            </div>
           </div>
+
           <ul className='nav-list'>
             {items.map((item, index) => {
               return(
@@ -35,6 +42,7 @@ function Sidebar({items}:IProps) {
               )
             })}
           </ul>
+
         </div>
     </div>
   )

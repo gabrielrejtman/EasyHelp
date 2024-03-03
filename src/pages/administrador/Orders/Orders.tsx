@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Page, Path, Title } from '../../../components/GlobalComponents.style'
-import { IoMdSearch } from 'react-icons/io'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import './styles.css'
-
+import {OrderCard} from '../../../components/Cards/OrderCard.tsx'
+import { api } from '../../../services/api.ts'
 
 // Temporary Example
-    import {Order, exampleOrder} from './example.ts'
-
+    import {Order, exampleOrder} from '../../../entities/example.ts'
 
 // Fetch Data
     const fetchData = async (): Promise<Order[]> => {
       try {
-        const resp = await axios.get<Order[]>('http://localhost:3300/cadastrar_problema');
+        const resp = await api.get('/cadastrar_problema');
         return resp.data;
       } catch (error) {
         console.log(JSON.stringify(error));
@@ -23,31 +20,7 @@ import './styles.css'
     };
 
 
-
-// Show Orders design
-const renderOrderCard = (item: Order, index: number): React.ReactNode => (
-    <div key={index} className="card">
-      <div className="card-content">
-        <div className="cardHead">
-          <p className="cardTitulo">{item.problem.title}</p>
-          <div className="etiquetas">
-            <div className="categoria">{item.problem.category}</div>
-            <div className="dificuldade">{item.problem.difficulty}</div>
-          </div>
-        </div>
-        <p className="cardDescricao">{item.problem.description}</p>
-      </div>
-    </div>
-)
-
-const OrdersList: React.FC<{ problems: Order[] }> = ({ problems }) => (
-    <div className="listaDeProblemas">
-      <ul>{problems.map(renderOrderCard)}</ul>
-    </div>
-);
-
-
-const Problems: React.FC = () => {
+export const Orders = () => {
 
   const [problems, setProblems] = useState<Order[]>([
       exampleOrder
@@ -68,20 +41,22 @@ const Problems: React.FC = () => {
 
 
   return (
-      <div>
         <Page>
-          <Path>Home</Path>
-          <Title>Problemas e soluções</Title>
+          <div>
+              <Path>Home</Path>
+              <Title>Problemas e soluções</Title>
 
-          {/*Date calendar*/}
-          <div className="head-container">
-              <h4>Data</h4>
+              <div className="head-container">
+                  <h4>Data</h4>
+              </div>
+
+              <div className="listaDeProblemas">
+                <ul>{problems.map((problem : Order) => 
+                    <OrderCard item={problem}/>
+                )}
+                </ul>
+              </div>
           </div>
-
-          <OrdersList problems={problems} />
         </Page>
-      </div>
   );
 };
-
-export default Problems;

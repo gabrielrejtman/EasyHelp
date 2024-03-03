@@ -1,28 +1,28 @@
-import { TbCalendar, } from  'react-icons/tb'
-import { BiParty } from "react-icons/bi";
-import { MdOutlineVideoCameraFront } from "react-icons/md";
-import { FaTasks } from "react-icons/fa";
+import timeSearch from '../../assets/icons/Time Search.svg'
+import homePage from '../../assets/icons/Home Page.svg'
+import systemReport from '../../assets/icons/System Report.svg'
+import custumer from '../../assets/icons/Customer.svg'
 
 const side_bar_pages = [
     {
         name: "Home",
-        url: "home",
-        icon: <TbCalendar size={22} color="#ffff"/>
+        url: "/",
+        icon: <img src={homePage}/>
     },
     {
-        name: "Historico de Ocorrencias",
-        url: "orders",
-        icon: <TbCalendar size={22} color="#ffff"/>
-    },
-    {
-        name: "Problemas",
-        url: "problems",
-        icon: <TbCalendar size={22} color="#ffff"/>
+        name: "Histórico de Ocorrências",
+        url: "/orders",
+        icon: <img src={timeSearch}/>
     },
     {
         name: "Usuários",
-        url: "users",
-        icon: <TbCalendar size={22} color="#ffff"/>
+        url: "/users",
+        icon: <img src={custumer}/>
+    },
+    {
+        name: "Problemas",
+        url: "/problems",
+        icon: <img src={systemReport}/>
     },
   ]
 

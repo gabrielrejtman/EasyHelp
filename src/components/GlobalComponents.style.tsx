@@ -3,12 +3,18 @@ import styled from 'styled-components'
 export const Title = styled.h1`
     font-size: 24px;
     font-weight: bold;  
-    padding-top: 25px;
 `
 
 export const Page = styled.div`
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    padding: 25px;
+    width: 100%;
+    padding-top: 28px;
+    padding-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
 `
 
 export const Path = styled.p`
@@ -19,6 +25,6 @@ export const Path = styled.p`
 
 export const Layout = styled.div`
     width: 100%;
-    height: 100%;
     display: flex;
+    height: 100%;
 `
