@@ -60,7 +60,7 @@
     display: flex;
     margin-top: 25px;
   }
-  
+
   .listaDeProblemas{
     margin-top: 15px;
     overflow: auto;
@@ -68,14 +68,14 @@
     max-width: 1100px;
     min-width: 800px;
   }
-  
+
   .listaDeProblemas::-webkit-scrollbar {
     width: 10px;
     height: auto;    
   }
-  
-  .listaDeProblemas::-webkit-scrollbar-thumb {   
-    border-radius: 20px;       
+
+  .listaDeProblemas::-webkit-scrollbar-thumb {
+    border-radius: 20px;
     border-radius: 7px;
     background: #686868;
   }

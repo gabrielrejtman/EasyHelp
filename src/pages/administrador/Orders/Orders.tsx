@@ -1,96 +1,87 @@
-import './styles.css';
-import { useEffect, useState } from 'react';
-import { Page, Path, Title } from '../../../components/GlobalComponents.style';
-import { FaPencil, FaTrash } from 'react-icons/fa6';
-import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi';
-import styled from 'styled-components';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Page, Path, Title } from '../../../components/GlobalComponents.style'
+import { IoMdSearch } from 'react-icons/io'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+import './styles.css'
 
-const Button = styled.button`
-  outline: none;
-  margin-left: 20px;
-  background-color: rgba(0, 0, 0, 0);
-  border: solid rgba(0, 0, 0, 0);
-  cursor: pointer;
-`
 
-function Orders() {
-  let listaDeOcorrencias = []
+// Temporary Example
+    import {Order, exampleOrder} from './example.ts'
 
-  const [orders, setOrders] = useState([])
-  const [search, setSearch] = useState('')
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await loadOrders();
-    }
-    fetchData();
-  }, []);
+// Fetch Data
+    const fetchData = async (): Promise<Order[]> => {
+      try {
+        const resp = await axios.get<Order[]>('http://localhost:3300/cadastrar_problema');
+        return resp.data;
+      } catch (error) {
+        console.log(JSON.stringify(error));
+        return [];
+      }
+    };
 
-  async function loadOrders() {
-    try {
-      const resp = await axios.get('http://localhost:3300/cadastrar_ocorrencia');
-      listaDeOcorrencias = resp.data;
-      setOrders(listaDeOcorrencias);
-    } catch (error) {
-      console.log(JSON.stringify(error));
-    }
-  }
 
-  const limitItems = 10
-  const totalItems = orders.length
-  const [offset, setOffset] = useState(0)
-  const [currentPage, setCurrentPage] = useState(1)
 
-  let navigate = useNavigate()
-
-  const handleAddOrder = () => {
-    navigate('/register_order')
-  }
-
-  return (
-      <Page>
-        <Path>Home</Path>
-        <Title>Histórico de Ocorrências</Title>
-
-        <div className="head-container">
-          <div className="btn-pages">
-            <BiSolidLeftArrow size={14} />
-            <p className="pages-index">1-10 de {totalItems}</p>
-            <BiSolidRightArrow size={14} />
+// Show Orders design
+const renderOrderCard = (item: Order, index: number): React.ReactNode => (
+    <div key={index} className="card">
+      <div className="card-content">
+        <div className="cardHead">
+          <p className="cardTitulo">{item.problem.title}</p>
+          <div className="etiquetas">
+            <div className="categoria">{item.problem.category}</div>
+            <div className="dificuldade">{item.problem.difficulty}</div>
           </div>
         </div>
+        <p className="cardDescricao">{item.problem.description}</p>
+      </div>
+    </div>
+)
 
-        <div className="listaDeOcorrencias">
-          <ul>
-            {orders.map((item) => (
-                <div className="card" key={item.id}>
-                  <div className="card-content">
-                    <div className="cardHead">
-                      <p className="cardTitulo">{item.titulo}</p>
-                      <div className="etiquetas">
-                        <div className="categoria">{item.categoria}</div>
-                        <div className="dificuldade">{item.dificuldade}</div>
-                      </div>
-                    </div>
-                    <p className="cardDescricao">{item.descricao}</p>
-                  </div>
+const OrdersList: React.FC<{ problems: Order[] }> = ({ problems }) => (
+    <div className="listaDeProblemas">
+      <ul>{problems.map(renderOrderCard)}</ul>
+    </div>
+);
 
-                  <div className="btn-bar">
-                    <Button>
-                      <FaPencil size={24} />
-                    </Button>
-                    <Button>
-                      <FaTrash size={24} />
-                    </Button>
-                  </div>
-                </div>
-            ))}
-          </ul>
-        </div>
-      </Page>
+
+const Problems: React.FC = () => {
+
+  const [problems, setProblems] = useState<Order[]>([
+      exampleOrder
+  ]);
+
+  const [search, setSearch] = useState<string>('');
+
+  const totalItems = problems.length;
+  const navigate = useNavigate();
+
+//    useEffect(() => {
+//        const fetchAndSetProblems = async () => {
+//            const problemsData = await fetchData();
+//            setProblems(problemsData);
+//        };
+//        fetchAndSetProblems();
+//    }, []);
+
+
+  return (
+      <div>
+        <Page>
+          <Path>Home</Path>
+          <Title>Problemas e soluções</Title>
+
+          {/*Date calendar*/}
+          <div className="head-container">
+              <h4>Data</h4>
+          </div>
+
+          <OrdersList problems={problems} />
+        </Page>
+      </div>
   );
-}
+};
 
-export default Orders;
+export default Problems;

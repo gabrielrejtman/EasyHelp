@@ -15,26 +15,24 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-
-// Fetch Data
-    const fetchData = async (): Promise<Problem[]> => {
-    try {
-        const resp = await axios.get<Problem[]>('http://localhost:3300/cadastrar_problema');
-        return resp.data;
-    } catch (error) {
-        console.log(JSON.stringify(error));
-        return [];
-    }
-};
-
-
-
 interface Problem {
     titulo: string;
     categoria: string;
     dificuldade: string;
     descricao: string;
 }
+
+// Fetch Data
+    const fetchData = async (): Promise<Problem[]> => {
+        try {
+            const resp = await axios.get<Problem[]>('http://localhost:3300/cadastrar_problema');
+            return resp.data;
+        } catch (error) {
+            console.log(JSON.stringify(error));
+            return [];
+        }
+    };
+
 
 // Show problems design
     const renderProblemCard = (item: Problem, index: number): React.ReactNode => (
@@ -124,12 +122,14 @@ const Problems: React.FC = () => {
                         </button>
                         <input type="text" placeholder="Digite o problema" maxLength={200} />
                     </div>
-                    {/*Pagination*/}
-                    <ProblemsPagination totalItems={totalItems} />
+
 
                 </div>
                 <div>
                     <h4>Filtros</h4>
+
+                    {/*Pagination*/}
+                    <ProblemsPagination totalItems={totalItems} />
                 </div>
 
 

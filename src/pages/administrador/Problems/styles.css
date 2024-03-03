@@ -5,6 +5,19 @@
     padding: 20px 110px 0 0;
 }
 
+.btn-add-problem{
+    margin-right: 12px;
+    background-color: #686868;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight:bold;
+    color: white;
+    padding: 10px 20px;
+}
+
 .containerInput {
     padding: 7px;
     display: flex;
@@ -12,16 +25,11 @@
     border: 1px solid hsl(0, 0%, 41%);
     width: 600px;
     align-self: center;
-    margin: auto;
-}
-
-.pages-container {
-    display: flex;
-    align-items: center;
 }
 
 
 .btn-pages {
+    margin-left: 90%;
     display: flex;
     align-items: center;
 }
@@ -39,7 +47,7 @@
     font-size: 14px;
     color: #000000;
     outline: none;
-    margin: 0 8px; /* Combine margin-left and margin-right into one property */
+    margin: 0 8px;
     width: 100%;
 }
 
