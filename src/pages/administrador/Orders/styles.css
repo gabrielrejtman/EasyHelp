@@ -92,8 +92,8 @@
 
 .btn-bar{
     display: flex;
-    align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: flex-end; /* Alinha os itens à direita */
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .card-content{
@@ -132,7 +132,7 @@
   }
   
   .btn-add-problem{
-    margin-top: 32px;
+    margin-right: 12px;
     background-color: #686868;
     border-radius: 22.5px;
     border: none;

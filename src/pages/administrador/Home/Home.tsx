@@ -1,16 +1,6 @@
-import React from 'react';
 import './styles.css'
-import styled from 'styled-components';
-
-const Page = styled.div`
-  padding: 20px;
-  margin-left: 45px; 
-`
-
-const Title = styled.h1`
-  font-size: 24px;
-  margin-bottom: 10px;
-`
+import styled from 'styled-components'
+import { Page, Path, Title } from '../../../components/GlobalComponents.style'
 
 const DashboardGrid = styled.div`
   display: grid;
@@ -29,7 +19,7 @@ const DashboardItem = styled.div`
 function Home() {
   return (
       <Page>
-        <a>Home</a>
+        <Path>Home</Path>
         <Title>Dashboards</Title>
 
 
@@ -40,8 +30,7 @@ function Home() {
           <DashboardItem>Avaliações</DashboardItem>
         </DashboardGrid>
       </Page>
-  );
+  )
 }
 
-export default Home;
-
+export default Home
