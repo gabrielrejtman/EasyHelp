@@ -2,8 +2,8 @@ import fastify from "fastify";
 import { FastifyInstance } from "fastify";
 import cors from "@fastify/cors";
 import { CreateProblemUseCase } from "./usecases/CreateProblem/CreateProblemUseCase";
-import CreateProblemController from "./controllers/CreateProblemController";
-import DeleteProblemController from "./controllers/DeleteProblemController";
+import CreateProblemController from "./controllers/Problem/CreateProblemController";
+import DeleteProblemController from "./controllers/Problem/DeleteProblemController";
 import PrismaProblemRepository from "./prisma/PrismaProblemRepository";
 import { DeleteProblemUseCase } from "./usecases/DeleteProblem/DeleteProblemUseCase";
 
