@@ -1,22 +1,9 @@
-import { Problem } from "../entities/Problem";
-import { IProblem, IProblemRepository } from "../interfaces/IProblemRepository";
-import { prisma } from "../database/prisma-client";
+import Problem from "../entities/Problem"
+import { ICreateProblem } from "../usecases/CreateProblem/ICreateProblem";
 
-export class ProblemRepository implements IProblemRepository {
-    constructor() {}
 
-    async createProblem(data: IProblem): Promise<IProblem> {
-        const result = await prisma.problema.create({
-            data: {
-                id_problema: data.id_problema,
-                descricao: data.description,
-                categoria: data.category,
-                dificuldade: data.difficulty,
-                createdAt: data.date,
-                titulo:data.title
-            }
-        })
-
-        return result;
-    }
+export default interface ProblemRepository {
+    getProblems(title: string): Promise<Problem | null>;
+    create(problem: ICreateProblem): Promise<Problem>;
+    delete(id: string): Promise<Problem | null>;
 }
