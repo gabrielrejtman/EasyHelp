@@ -36,13 +36,13 @@ interface Problem {
 
 // Show problems design
     const renderProblemCard = (item: Problem, index: number): React.ReactNode => (
-        <div key={index} className="card">
-            <div className="card-content">
-                <div className="cardHead">
-                    <p className="cardTitulo">{item.titulo}</p>
-                    <div className="etiquetas">
-                        <div className="categoria">{item.categoria}</div>
-                        <div className="dificuldade">{item.dificuldade}</div>
+        <div key={index} className="problemCard">
+            <div className="problemCardContent">
+                <div className="problemCardHead">
+                    <p className="cardProblemTitle">{item.titulo}</p>
+                    <div className="problemTags">
+                        <div className="problemCategory">{item.categoria}</div>
+                        <div className="problemDifficulty">{item.dificuldade}</div>
                     </div>
                 </div>
                 <p className="cardDescricao">{item.descricao}</p>
@@ -59,7 +59,7 @@ interface Problem {
     )
 
     const ProblemsList: React.FC<{ problems: Problem[] }> = ({ problems }) => (
-        <div className="listaDeProblemas">
+        <div className="problemsList">
             <ul>{problems.map(renderProblemCard)}</ul>
         </div>
     );
@@ -106,7 +106,7 @@ const Problems: React.FC = () => {
                 <Path>Home</Path>
                 <Title>Problemas e soluções</Title>
 
-                {/*Add Problem, Search Bar, Pagination*/}
+                {/*Add Problem, Search Bar*/}
                 <div className="head-container">
                     {/*Add Problem*/}
                     <div>
@@ -123,15 +123,12 @@ const Problems: React.FC = () => {
                         <input type="text" placeholder="Digite o problema" maxLength={200} />
                     </div>
 
-
                 </div>
-                <div>
-                    <h4>Filtros</h4>
+                <div className="subhead-container">
+                        <h4>Filtros</h4>
 
-                    {/*Pagination*/}
-                    <ProblemsPagination totalItems={totalItems} />
+                        <ProblemsPagination totalItems={totalItems} />
                 </div>
-
 
                 <ProblemsList problems={problems} />
             </Page>

@@ -30,7 +30,6 @@
 
 .problem-input{
     outline: none;
-    border: 0px;
     width: 500px;
     border-radius: 4px;
     padding: 5px;
@@ -47,7 +46,6 @@
 
 .select{
     outline: none;
-    border: 0px;
     width: 150px;
     border-radius: 4px;
     font-size: 12px;

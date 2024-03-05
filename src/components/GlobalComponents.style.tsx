@@ -9,6 +9,7 @@ export const Title = styled.h1`
 export const Page = styled.div`
     height: 100%;
     padding: 25px;
+    margin-left: 23%;
 `
 
 export const Path = styled.p`

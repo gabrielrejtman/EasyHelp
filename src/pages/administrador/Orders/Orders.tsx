@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Page, Path, Title } from '../../../components/GlobalComponents.style'
-import { IoMdSearch } from 'react-icons/io'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import './styles.css'
 
 
 // Temporary Example
-    import {Order, exampleOrder} from './example.ts'
+    import {Order, exampleOrder} from '../../../entities/example.ts'
 
 
 // Fetch Data

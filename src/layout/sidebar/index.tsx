@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import { Layout } from "../../components/GlobalComponents.style"
-import { Sidebar, SidebarItem } from "../../components/SideBar"
+import { Sidebar, SidebarItem } from "./SideBar"
 import { side_bar_pages } from "../../pages/administrador/SideBarItens"
 
 export const DashboardLayout = () => {
