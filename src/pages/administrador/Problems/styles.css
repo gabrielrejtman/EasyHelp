@@ -2,31 +2,45 @@
     display: flex;
     align-items: center;
     margin: auto;
-    padding: 0px 110px 0 0;
+    padding: 23px 110px 0 0;
 }
+
 .subhead-container {
     display: flex;
+    padding-top: 19px;
+}
+
+.filters-text{
+    font-size: 14px;
+}
+
+.filter-container{
+    display: flex;
+}
+
+.select-filter{
+    
 }
 
 .btn-add-problem{
     margin-right: 12px;
-    background-color: #686868;
+    background-color: #1960E9;
     border-radius: 22px;
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 12px;
-    font-weight:bold;
+    font-size: 14px;
+    font-weight: normal;
     color: white;
-    padding: 10px 20px;
+    padding: 5px 12px;
 }
 
 .containerInput {
-    padding: 7px;
+    padding: 6px;
     display: flex;
     border-radius: 20px;
     border: 1px solid hsl(0, 0%, 41%);
-    width: 600px;
+    width: 324px;
     align-self: center;
 }
 
@@ -60,7 +74,6 @@
 }
 
 .buttonSearch {
-    margin-left: 10px;
     background-color: transparent;
     border: 0;
     display: flex;
@@ -137,4 +150,12 @@
 .btn-bar {
     display: flex;
     align-items: center;
+}
+
+.itens-btn-add{
+    display: flex;
+}
+
+.btn-text{
+    padding-left: 4px;
 }

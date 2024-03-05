@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Page, Path, Title } from '../../../components/GlobalComponents.style'
 import { FaPencil, FaTrash} from 'react-icons/fa6'
-import { IoMdSearch } from 'react-icons/io'
 import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import './problems.css'
+import add from '../../../assets/icons/Add.svg'
+import searchIcon from '../../../assets/icons/Search.svg'
+import './styles.css'
 
 const Button = styled.button`
   outline: none;
@@ -58,12 +59,6 @@ interface Problem {
         </div>
     )
 
-    const ProblemsList: React.FC<{ problems: Problem[] }> = ({ problems }) => (
-        <div className="problemsList">
-            <ul>{problems.map(renderProblemCard)}</ul>
-        </div>
-    );
-
     const ProblemsPagination: React.FC<{ totalItems: number }> = ({ totalItems }) => (
         <div className="btn-pages">
             <BiSolidLeftArrow size={14} />
@@ -80,7 +75,7 @@ const Problems: React.FC = () => {
         titulo: 'maquina não liga',
         categoria: 'eletrico',
         dificuldade: 'facil',
-        descricao: 'A maquina apresenta sinais de...'}
+        descricao: 'A máquina apresenta sinais de...'}
     ]);
 
     const [search, setSearch] = useState<string>('');
@@ -111,26 +106,37 @@ const Problems: React.FC = () => {
                     {/*Add Problem*/}
                     <div>
                         <button className="btn-add-problem" onClick={handleAddProblem}>
-                            Adicionar Problema
+                            <div className='itens-btn-add'>
+                                <img src={add}/>
+                                <p className='btn-text'>Novo Cadastro</p>
+                            </div>
                         </button>
                     </div>
                     {/*Search Bar*/}
                     <div className="containerInput">
 
                         <button className="buttonSearch">
-                            <IoMdSearch size={24} color="#000" />
+                            <img src={searchIcon}/>
                         </button>
-                        <input type="text" placeholder="Digite o problema" maxLength={200} />
+                        <input type="text" placeholder="Buscar por Problemas" maxLength={200} />
                     </div>
 
                 </div>
                 <div className="subhead-container">
-                        <h4>Filtros</h4>
-
+                    <div className='filter-container'>
+                        <h4 className='filters-text'>Filtros</h4>
+                        <select className='select-filter'>
+                            <option value="categoria">Categoria</option>
+                            <option value="dificuldade"></option>
+                        </select>
+                    </div>
                         <ProblemsPagination totalItems={totalItems} />
                 </div>
 
-                <ProblemsList problems={problems} />
+                <div className="problemsList">
+                    <ul>{problems.map(renderProblemCard)}</ul>
+                </div>
+
             </div>
         </Page>
     );
