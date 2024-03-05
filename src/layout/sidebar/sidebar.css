@@ -1,5 +1,6 @@
 .sidebar-container {
-    width: 200px;
+    position: fixed;
+    width: 14%;
     height: 100%;
     background-color: #1E1F28;
     padding-left: 24px;
@@ -7,12 +8,14 @@
     padding-bottom: 0;
 }
 
+
+
 .logo{
     padding-top: 24px;
 }
 
 .nav-list {
-    padding: 0;
+    padding-top: 43px;
 }
 
 .nav-link:hover {
@@ -71,11 +74,9 @@ a.active{
 
 .user-name{
     font-size: 14px;
-    line-height: 2px;
     padding: 0;
 }
 
 .user-role{
     font-size: 10px;
-    line-height: 5px;
 }

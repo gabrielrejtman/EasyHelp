@@ -13,7 +13,7 @@ function RegisterProblems() {
     const navigate = useNavigate();
 
     const handleCancel = () => {
-        navigate('/problems_solucions');
+        navigate('/problems');
     };
 
     const handleProblemRegister = async (event: FormEvent) => {

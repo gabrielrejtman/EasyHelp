@@ -6,7 +6,7 @@ import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import './styles.css'
+import './problems.css'
 
 const Button = styled.button`
   outline: none;
@@ -97,7 +97,7 @@ const Problems: React.FC = () => {
 //    }, []);
 
     const handleAddProblem = () => {
-        navigate('/register_problem');
+        navigate('/problems-register');
     };
 
     return (

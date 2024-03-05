@@ -28,7 +28,7 @@ function Sidebar({items}:IProps) {
                         <p className='user-role'>{user.role}</p>
                     </div>
                 </div>
-
+                
                 <ul className='nav-list'>
                     {items.map((item, index) => {
                         return(
