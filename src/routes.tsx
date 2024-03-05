@@ -8,29 +8,27 @@ import { DashboardLayout } from "./layout/sidebar";
 import Home from "./pages/administrador/Home/Home.tsx"
 import Users from './pages/administrador/Users/Users.tsx'
 import Problems from "./pages/administrador/Problems/Problems.tsx"
-import Orders from "./pages/administrador/Orders/Orders.tsx";
+import {Orders} from "./pages/administrador/Orders/Orders.tsx";
 
 export const router = createBrowserRouter([
   {
-    path: "/adm",
-
     element: <DashboardLayout/>,
     children:[
 
       {
-        path:"home",
+        path:"/",
         element:<Home/>
       },
       {
-        path:"orders",
+        path:"/orders",
         element:<Orders/>
       },
       {
-        path: "users",
+        path: "/users",
         element: <Users/>
       },
       {
-        path: "problems",
+        path: "/problems",
         element: <Problems/>
       }
     ]
