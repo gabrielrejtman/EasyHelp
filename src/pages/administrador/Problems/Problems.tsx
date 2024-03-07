@@ -1,95 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { Page, Path, Title } from '../../../components/GlobalComponents.style'
-import { FaPencil, FaTrash} from 'react-icons/fa6'
 import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
 import add from '../../../assets/icons/Add.svg'
 import searchIcon from '../../../assets/icons/Search.svg'
 import './styles.css'
-
-const Button = styled.button`
-  outline: none;
-  margin-left: 20px;
-  background-color: #f0f0f0;
-  cursor: pointer;
-`
-
-interface Problem {
-    titulo: string;
-    categoria: string;
-    dificuldade: string;
-    descricao: string;
-}
-
-// Fetch Data
-    const fetchData = async (): Promise<Problem[]> => {
-        try {
-            const resp = await axios.get<Problem[]>('http://localhost:3300/cadastrar_problema');
-            return resp.data;
-        } catch (error) {
-            console.log(JSON.stringify(error));
-            return [];
-        }
-    };
+import Problem from '../../../domain/entities/Problem'
+import { ShowProblems} from '../../../services/useCases/Problems/ShowProblems'
+import { ProblemCard } from '../../../components/Cards/ProblemCard'
 
 
-// Show problems design
-    const renderProblemCard = (item: Problem, index: number): React.ReactNode => (
-        <div key={index} className="problemCard">
-            <div className="problemCardContent">
-                <div className="problemCardHead">
-                    <p className="cardProblemTitle">{item.titulo}</p>
-                    <div className="problemTags">
-                        <div className="problemCategory">{item.categoria}</div>
-                        <div className="problemDifficulty">{item.dificuldade}</div>
-                    </div>
-                </div>
-                <p className="cardDescricao">{item.descricao}</p>
-            </div>
-            <div className="btn-bar">
-                <Button>
-                    <FaPencil size={15} />
-                </Button>
-                <Button>
-                    <FaTrash size={15} />
-                </Button>
-            </div>
-        </div>
-    )
-
-    const ProblemsPagination: React.FC<{ totalItems: number }> = ({ totalItems }) => (
-        <div className="btn-pages">
-            <BiSolidLeftArrow size={14} />
-            <p className="pages-index">1-10 de {totalItems}</p>
-            <BiSolidRightArrow size={14} />
-        </div>
-    );
+const ProblemsPagination: React.FC<{ totalItems: number }> = ({ totalItems }) => (
+    <div className="btn-pages">
+        <BiSolidLeftArrow size={14} />
+        <p className="pages-index">1-10 de {totalItems}</p>
+        <BiSolidRightArrow size={14} />
+    </div>
+);
 
 
+export const Problems = () => {
 
-const Problems: React.FC = () => {
+    //States
+    //const [search, setSearch] = useState<string>('');
+    const [problems, setProblems] = useState<Problem[]>([]);
 
-    const [problems, setProblems] = useState<Problem[]>([{
-        titulo: 'maquina não liga',
-        categoria: 'eletrico',
-        dificuldade: 'facil',
-        descricao: 'A máquina apresenta sinais de...'}
-    ]);
-
-    const [search, setSearch] = useState<string>('');
-
+    //Global constants
+    const showProblems = new ShowProblems()
     const totalItems = problems.length;
     const navigate = useNavigate();
 
-//    useEffect(() => {
-//        const fetchAndSetProblems = async () => {
-//            const problemsData = await fetchData();
-//            setProblems(problemsData);
-//        };
-//        fetchAndSetProblems();
-//    }, []);
+   useEffect(() => {
+       loadProblems()
+   }, []);
+
+   async function loadProblems(){
+    try {
+        const response = await showProblems.execute();
+        setProblems(response);
+      } catch (error) {
+        console.error("Falha ao carregar problemas:", error);
+      }
+   }
 
     const handleAddProblem = () => {
         navigate('/problems-register');
@@ -134,12 +86,12 @@ const Problems: React.FC = () => {
                 </div>
 
                 <div className="problemsList">
-                    <ul>{problems.map(renderProblemCard)}</ul>
+                    <ul>{problems.map((problem) =>(
+                        <ProblemCard item={problem}/>
+                    ))}</ul>
                 </div>
 
             </div>
         </Page>
     );
 };
-
-export default Problems;

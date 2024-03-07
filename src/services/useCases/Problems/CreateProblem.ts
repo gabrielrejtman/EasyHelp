@@ -1,7 +1,7 @@
-import { Problem } from "@prisma/client";
-import UseCase from "../../domain/shared/usecase";
-import { ICreateProblem } from "../../domain/usecases/Problem/CreateProblemUseCase";
-import { Api } from "../Api";
+import Problem from "../../../domain/entities/Problem";
+import UseCase from "../../../domain/shared/usecase";
+import { ICreateProblem } from "../../../domain/usecases/Problem/CreateProblemUseCase";
+import { Api } from "../../Api";
 
 export class CreateProblem implements UseCase<ICreateProblem, Problem> {
 

@@ -3,8 +3,8 @@ import './styles.css';
 import { Page, Path, Title } from '../../../components/GlobalComponents.style';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { ICreateProblem } from '../../../domain/usecases/Problem/CreateProblem/ICreateProblem';
-import { CreateProblem } from '../../../services/CreateProblem/CreateProblem';
+import { ICreateProblem } from '../../../domain/usecases/Problem/CreateProblemUseCase';
+import { CreateProblem } from '../../../services/useCases/Problems/CreateProblem';
 
 function RegisterProblems() {
     const [problems, setProblems] = useState<ICreateProblem[]>([]);
