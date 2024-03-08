@@ -15,7 +15,7 @@
 }
 
 .nav-list {
-    padding: 0;
+    padding-top: 43px;
 }
 
 .nav-link:hover {
@@ -60,6 +60,10 @@ a.active{
     font-weight: 500;
 }
 
+.logout-container{
+    margin-top: 360px;
+}
+
 .user-container{
     padding-top: 24px;
     display: flex;
@@ -74,11 +78,9 @@ a.active{
 
 .user-name{
     font-size: 14px;
-    line-height: 2px;
     padding: 0;
 }
 
 .user-role{
     font-size: 10px;
-    line-height: 5px;
 }

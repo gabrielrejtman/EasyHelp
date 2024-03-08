@@ -1,33 +1,40 @@
-import React, { useRef, FormEvent } from 'react';
+import React, { useRef, FormEvent, useState } from 'react';
 import './styles.css';
 import { Page, Path, Title } from '../../../components/GlobalComponents.style';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ICreateProblem } from '../../../domain/usecases/Problem/CreateProblem/ICreateProblem';
+import { CreateProblem } from '../../../services/CreateProblem/CreateProblem';
 
 function RegisterProblems() {
+    const [problems, setProblems] = useState<ICreateProblem[]>([]);
+    
     const problemRef = useRef<HTMLInputElement>(null);
-    const categoryRef = useRef<HTMLSelectElement>(null);
-    const dificultRef = useRef<HTMLSelectElement>(null);
+    const categoryRef = useRef<HTMLInputElement>(null);
+    const difficultyRef = useRef<HTMLInputElement>(null);
     const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
     const navigate = useNavigate();
 
     const handleCancel = () => {
-        navigate('/problems_solucions');
+        navigate('/problems');
     };
 
     const handleProblemRegister = async (event: FormEvent) => {
         event.preventDefault();
 
-        if (!problemRef.current?.value || !descriptionRef.current?.value) return;
+        if (!problemRef.current?.value || !descriptionRef.current?.value 
+            || !difficultyRef.current?.value || !categoryRef.current?.value) return;
 
         try {
-            const response = await axios.post('http://localhost:3300/cadastrar_problema', {
-                titulo: problemRef.current?.value,
-                descricao: descriptionRef.current?.value,
-                dificuldade: dificultRef.current?.value,
-                categoria: categoryRef.current?.value,
-            });
+            const createProblem = new CreateProblem()
+            const title = problemRef.current?.value
+            const description = descriptionRef.current?.value
+            const difficulty = difficultyRef.current?.value
+            const category = categoryRef.current?.value
+
+            const response  = createProblem.execute({title, description, difficulty, category})
+            console.log(response)
         } catch (err) {
             console.error(err);
         }
@@ -53,21 +60,25 @@ function RegisterProblems() {
 
                             <div className="select-container">
                                 <p className="label">Categoria</p>
-                                <select className="select" ref={categoryRef}>
+                                <input type="text" ref={categoryRef}/>
+                                {/* <select className="select" ref={categoryRef}>
+                                    <option value="default">Nenhum</option>
                                     <option value="elétrico">Elétrico</option>
                                     <option value="mecânico">Mecânico</option>
                                     <option value="eletrônico">Eletrônico</option>
                                     <option value="sistema">Sistema</option>
-                                </select>
+                                </select> */}
                             </div>
 
                             <div className="select-container">
                                 <p className="label">Dificuldade</p>
-                                <select className="select" ref={dificultRef}>
+                                <input ref={difficultyRef}/>
+                                {/* <select className="select" ref={difficultyRef}>
+                                    <option value="default">Nenhum</option>
                                     <option value="fácil">Fácil</option>
                                     <option value="médio">Médio</option>
                                     <option value="difícil">Difícil</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
 

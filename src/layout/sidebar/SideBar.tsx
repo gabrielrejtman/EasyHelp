@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import './SideBar.css'
+import './sidebar.css'
 import diderotLogo from '../../assets/DiderotLogo.svg';
 import { FaUserCircle } from "react-icons/fa";
+import logoutIcon from "../../assets/icons/Logout.svg";
 
 export interface SidebarItem{
     url:string;
@@ -10,12 +11,15 @@ export interface SidebarItem{
     name:string;
 }
 
+
 interface IProps{
     items:SidebarItem[]
 }
 
 function Sidebar({items}:IProps) {
     const user = {name: "Pedro Gama", role: "Administrador"}
+
+
 
     return (
         <div>
@@ -28,7 +32,7 @@ function Sidebar({items}:IProps) {
                         <p className='user-role'>{user.role}</p>
                     </div>
                 </div>
-
+                
                 <ul className='nav-list'>
                     {items.map((item, index) => {
                         return(
@@ -41,6 +45,16 @@ function Sidebar({items}:IProps) {
                         )
                     })}
                 </ul>
+                <div className='logout-container'>
+                    <li className='nav-item'>
+                        <NavLink to="/login" className="nav-link">
+                            <div className='nav-link-icon'>
+                                <img src={logoutIcon}/>
+                            </div>
+                            <div className='icon-text'>Logout</div>
+                        </NavLink>
+                    </li>
+                </div>
             </div>
         </div>
     )
