@@ -2,10 +2,9 @@ import {createBrowserRouter} from "react-router-dom";
 import { DashboardLayout } from "./layout/sidebar";
 import Home from "./pages/administrador/Home/Home.tsx"
 import Users from './pages/administrador/Users/Users.tsx'
-import {Problems} from "./pages/administrador/Problems/Problems.tsx"
+import {Problems} from "./pages/administrador/Problems/ShowProblems/index.tsx"
 import Orders from "./pages/administrador/Orders/Orders.tsx";
-import path from "path";
-import RegisterProblems from "./pages/administrador/RegisterProblems/RegisterProblem.tsx";
+import {RegisterProblems} from "./pages/administrador/Problems/RegisterProblem/index.tsx";
 
 export const router = createBrowserRouter([
   {

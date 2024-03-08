@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Page, Path, Title } from '../../../components/GlobalComponents.style'
+import { Page, Path, Title } from '../../../../components/GlobalComponents.style'
 import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom'
-import add from '../../../assets/icons/Add.svg'
-import searchIcon from '../../../assets/icons/Search.svg'
+import add from '../../../../assets/icons/Add.svg'
+import searchIcon from '../../../../assets/icons/Search.svg'
 import './styles.css'
-import Problem from '../../../domain/entities/Problem'
-import { ShowProblems} from '../../../services/useCases/Problems/ShowProblems'
-import { ProblemCard } from '../../../components/Cards/ProblemCard'
+import Problem from '../../../../domain/entities/Problem'
+import { ShowProblems} from '../../../../services/useCases/Problems/ShowProblems'
+import { ProblemCard } from '../../../../components/Cards/ProblemCard'
 
 
 const ProblemsPagination: React.FC<{ totalItems: number }> = ({ totalItems }) => (

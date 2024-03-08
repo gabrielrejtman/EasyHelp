@@ -1,12 +1,11 @@
-import React, { useRef, FormEvent, useState } from 'react';
+import { useRef, FormEvent, useState } from 'react';
 import './styles.css';
-import { Page, Path, Title } from '../../../components/GlobalComponents.style';
+import { Page, Path, Title } from '../../../../components/GlobalComponents.style';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { ICreateProblem } from '../../../domain/usecases/Problem/CreateProblemUseCase';
-import { CreateProblem } from '../../../services/useCases/Problems/CreateProblem';
+import { ICreateProblem } from '../../../../domain/usecases/Problem/CreateProblemUseCase';
+import { CreateProblem } from '../../../../services/useCases/Problems/CreateProblem';
 
-function RegisterProblems() {
+export function RegisterProblems() {
     const [problems, setProblems] = useState<ICreateProblem[]>([]);
     
     const problemRef = useRef<HTMLInputElement>(null);
@@ -102,4 +101,3 @@ function RegisterProblems() {
     );
 }
 
-export default RegisterProblems;

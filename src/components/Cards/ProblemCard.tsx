@@ -2,7 +2,7 @@ import React from 'react'
 import { FaPencil, FaTrash} from 'react-icons/fa6'
 import styled from 'styled-components'
 import Problem from '../../domain/entities/Problem'
-import '../../pages/administrador/Problems/styles.css'
+import '../../pages/administrador/Problems/ShowProblems/styles.css'
 
 const Button = styled.button`
   outline: none;
