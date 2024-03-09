@@ -6,7 +6,8 @@
 
 .problem-header{
     background-color: #686868;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     padding: 8px 15px;
     font-size: 12px;
     font-weight: 700;

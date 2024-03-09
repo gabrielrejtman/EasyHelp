@@ -4,46 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30c3fc66-d04d-4975-9e2d-9edfa87978a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/FullyStar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/HollowStar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/Logout.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/OrderArrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/administrador/Orders/example.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+    <list default="true" id="57038e43-8b86-44f9-ae31-6fc8439848c7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Cards/SearchProblemCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/Home/ProblemNotFound/ProblemNotFound.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/Home/ProblemNotFound/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/Home/SearchProblems/SearchProblem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/Home/SearchProblems/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/Orders/SupervisorHistoric.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/supervisor/SideBarItens.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cards/Cards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/Cards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cards/OrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/OrderCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Cards/OrderCards.ts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/OrderCards.ts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/FullyStar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/FullyStar.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/HollowStar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/Logout.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/OrderArrow.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/OrderArrow.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/Cards.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GlobalComponents.style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalComponents.style.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Problem.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/example.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entities/example.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entities/example.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/sidebar/SideBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/SideBar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/sidebar/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/sidebar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Home/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Home/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/administrador/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Orders/example.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/administrador/Orders/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Orders/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/Problems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Problems/Problems.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Problems/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/RegisterProblem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/RegisterProblem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/Problems.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/RegisterProblem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/styles.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/administrador/SideBarItens.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/SideBarItens.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CreateProblem/CreateProblem.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +56,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2dNSTqYoqQYKAWJA0qCsTgNbfVJ" />
+  <component name="ProjectId" id="2dSOfm9n8SyO27LSu9C392QEvJh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,7 +66,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Samsung/repositorios/EasyHelp/src/assets/icons",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,23 +86,22 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\assets\icons" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\assets\icons" />
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages\administrador\Orders" />
+      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages\supervisor\Home" />
+      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages\supervisor\Home\SearchProblems" />
+      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\components\Cards" />
+      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="30c3fc66-d04d-4975-9e2d-9edfa87978a1" name="Changes" comment="" />
-      <created>1709847060406</created>
+      <changelist id="57038e43-8b86-44f9-ae31-6fc8439848c7" name="Changes" comment="" />
+      <created>1709998126700</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709847060406</updated>
-      <workItem from="1709847064458" duration="7276000" />
+      <updated>1709998126700</updated>
+      <workItem from="1709998129753" duration="9151000" />
     </task>
     <servers />
   </component>

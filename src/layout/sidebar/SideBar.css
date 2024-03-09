@@ -60,10 +60,6 @@ a.active{
     font-weight: 500;
 }
 
-.logout-container{
-    margin-top: 360px;
-}
-
 .user-container{
     padding-top: 24px;
     display: flex;

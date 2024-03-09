@@ -8,6 +8,7 @@
 .subhead-container {
     display: flex;
     padding-top: 19px;
+    justify-content: space-between;
 }
 
 .filters-text{
@@ -16,10 +17,6 @@
 
 .filter-container{
     display: flex;
-}
-
-.select-filter{
-    
 }
 
 .btn-add-problem{
@@ -46,9 +43,7 @@
 
 
 .btn-pages {
-    margin-left: 81%;
     display: flex;
-    align-items: center;
 }
 
 .pages-index {
@@ -100,11 +95,10 @@
 }
 
 .problemCard {
-    margin-bottom: 10px;
-    background-color: #D9D9D9;
-    padding: 5px 20px;
-    border-radius: 8px;
-    height: 80px;
+    margin-bottom: 8px;
+    background-color: #F0F0F0;
+    padding: 10px 14px;
+    border-radius: 4px;
     width: auto;
     display: flex;
     justify-content: space-between;
@@ -121,6 +115,7 @@
 
 .cardProblemTitle{
     font-size: 13px;
+    font-weight: 700;
 }
 
 .problemTags{
@@ -131,13 +126,8 @@
 
 }
 
-.problemCategory, .problemDifficulty{
-    background-color: #645C5C;
-    margin-left: 5px;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: black;
+.problemDifficulty{
+    border: 1px solid #02AA8B;
 }
 
 .cardProblemDescription{

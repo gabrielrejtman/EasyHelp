@@ -18,18 +18,18 @@ const DashboardItem = styled.div`
 
 function Home() {
   return (
-      <Page>
-        <Path>Home</Path>
-        <Title>Dashboards</Title>
+          <Page>
+            <Path>Home</Path>
+            <Title>Dashboards</Title>
 
 
-        <DashboardGrid>
-          <DashboardItem>Ocorrências mais registradas</DashboardItem>
-          <DashboardItem>Problemas mais frequentes</DashboardItem>
-          <DashboardItem>Setores com mais problemas</DashboardItem>
-          <DashboardItem>Avaliações</DashboardItem>
-        </DashboardGrid>
-      </Page>
+            <DashboardGrid>
+              <DashboardItem>Ocorrências mais registradas</DashboardItem>
+              <DashboardItem>Problemas mais frequentes</DashboardItem>
+              <DashboardItem>Setores com mais problemas</DashboardItem>
+              <DashboardItem>Avaliações</DashboardItem>
+            </DashboardGrid>
+          </Page>
   )
 }
 

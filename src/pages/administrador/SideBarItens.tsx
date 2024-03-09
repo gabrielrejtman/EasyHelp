@@ -3,7 +3,7 @@ import homePage from '../../assets/icons/Home Page.svg'
 import systemReport from '../../assets/icons/System Report.svg'
 import custumer from '../../assets/icons/Customer.svg'
 
-const side_bar_pages = [
+const SidebarPagesADM = [
     {
         name: "Home",
         url: "/",
@@ -26,4 +26,4 @@ const side_bar_pages = [
     },
   ]
 
-  export {side_bar_pages}
+  export {SidebarPagesADM}

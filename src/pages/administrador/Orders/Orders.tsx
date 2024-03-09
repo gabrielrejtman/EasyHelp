@@ -3,13 +3,13 @@ import { Page, Path, Title } from '../../../components/GlobalComponents.style'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import FullyStar from '../../../assets/icons/FullyStar.svg'
-import HollowStar from '../../../assets/icons/HollowStar.svg'
+import StarOutlined from '../../../assets/icons/StarOutlined.svg'
 import Arrow from '../../../assets/icons/OrderArrow.svg'
 import './styles.css'
 import {FaUserCircle} from "react-icons/fa";
 
 // Temporary Example
-    import {Order, ex1} from './example.ts'
+    import {Order, ex1} from '../../../domain/entities/example'
 
 
     const exampleOrder = [ex1, ex1, ex1, ex1, ex1]
@@ -37,7 +37,7 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
             <div className="cardHead">
                 {/*Supervisor*/}
                 <div className='order-user-container'>
-                    <FaUserCircle size={40}/>
+                    <FaUserCircle size={40} color='black'/>
                     <div className='order-users-info'>
                         <p className='card-user-names'>{item.supervisor.name}</p>
                         <p className='card-users-info'>{'#'+item.supervisor.id+' - '+item.supervisor.role}</p>
@@ -49,7 +49,7 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
                     {Array.from({ length: 5 }, (_, index) => (
                         <img
                             key={index}
-                            src={item.note >= index + 1 ? FullyStar : HollowStar }
+                            src={item.note >= index + 1 ? FullyStar : StarOutlined }
                             className="star-image"
                         />
                     ))}
@@ -67,7 +67,7 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
                 <img src={Arrow} className='order-arrow'/>
                 {/*Technician*/}
                 <div className='order-user-container'>
-                    <FaUserCircle size={40}/>
+                    <FaUserCircle size={40} color='black'/>
                     <div className='order-users-info'>
                         <p className='card-user-names'>{item.technician.name}</p>
                         <p className='card-users-info'>{'#'+item.technician.id+' - '+item.technician.role}</p>
