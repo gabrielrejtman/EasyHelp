@@ -49,7 +49,7 @@ export const Problems = () => {
 
     return (
         <Page>
-            <div>
+            <div className='page'>
                 <Path>Home</Path>
                 <Title>Problemas e soluções</Title>
 
@@ -82,7 +82,7 @@ export const Problems = () => {
                             <option value="dificuldade"></option>
                         </select>
                     </div>
-                        <ProblemsPagination totalItems={totalItems} />
+                    <ProblemsPagination totalItems={totalItems} />
                 </div>
 
                 <div className="problemsList">
