@@ -5,16 +5,16 @@
 }
 
 .problem-header{
-    background-color: #686868;
-    border-radius: 8px;
-    padding: 8px 15px;
-    font-size: 12px;
-    font-weight: 700;
+    background-color: #1E1F28;
+    padding: 8px 22px;
+    font-size: 16px;
     color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .problem-content{
-    background-color: #D9D9D9;
+    background-color: #F0F0F0;
     padding: 20px;
 }
 
@@ -23,15 +23,15 @@
 }
 
 .label{
-    font-size: 12px;
-    font-weight:600;
-    padding-bottom: 5px;
+    font-size: 14px;
+    font-weight:400;
+    padding-bottom: 8px;
 }
 
 .problem-input{
     outline: none;
     border: 0px;
-    width: 500px;
+    width: 290px;
     border-radius: 4px;
     padding: 5px;
     font-size: 12px;
@@ -66,6 +66,7 @@
     border: 0;
     padding: 5px;
     font-size: 12px;
+    font-family: "Open Sans", sans-serif;
 }
 
 .description-textarea:focus{
@@ -79,25 +80,23 @@
 }
 
 .btn-save{
-    background-color: #686868;
+    background-color: #1960E9;;
     border: 0;
     cursor: pointer;
-    padding: 5px 25px;
+    padding: 5px 19px;
     color: white;
-    font-size: 16px;
-    border-radius: 22.5px;
-    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 20px;
 }
 
 .btn-cancel{
     background-color: white;
-    border: 1px solid #686868;
+    border: 1px solid #000000;
     cursor: pointer;
-    padding: 7px 20px;
-    color: #686868;
-    font-size: 12px;
-    border-radius: 22.5px;
-    margin-top: 10px;
+    padding: 5px 10px;
+    color: #000000;
+    font-size: 14px;
+    border-radius: 20px;
     font-weight: 700;
     margin-right: 10px;
 }

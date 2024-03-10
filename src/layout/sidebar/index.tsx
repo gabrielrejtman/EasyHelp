@@ -1,13 +1,20 @@
 import { Outlet } from "react-router-dom"
 import { Layout } from "../../components/GlobalComponents.style"
 import { Sidebar, SidebarItem } from "./SideBar"
-import { side_bar_pages } from "../../pages/administrador/SideBarItens"
+import { SidebarPagesADM } from "../../pages/administrador/SideBarItens"
+import { SidebarPagesSupervisor } from "../../pages/supervisor/SideBarItens"
+
+const userType = 2 //   1: supervisor | 2: técnico
 
 export const DashboardLayout = () => {
-    //const isAdmin = true;
-    //const items: SidebarItem[] = isAdmin ? [{}] : [{}]
+    let items: SidebarItem[]
+    if (userType === 1) {
+        items = SidebarPagesSupervisor
+    }
+    else{
+        items = SidebarPagesADM
+    }
 
-    const items: SidebarItem[] = side_bar_pages
 
     return (
         <Layout>

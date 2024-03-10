@@ -17,6 +17,7 @@
 
 .filter-container{
     display: flex;
+    align-items: center;
 }
 
 .btn-add-problem{
@@ -107,6 +108,7 @@
 
 .problemCardContent{
     width: 100%;
+    justify-content: left;
 }
 
 .problemCardHead{
@@ -133,13 +135,6 @@
 .cardProblemDescription{
     font-size: 11px;
     color: #696969;
-    margin-top: 10px;
-}
-
-
-.btn-bar {
-    display: flex;
-    align-items: center;
 }
 
 .itens-btn-add{
@@ -148,4 +143,19 @@
 
 .btn-text{
     padding-left: 4px;
+}
+
+.filters-text{
+    padding-right: 3px;
+}
+
+.problems-select-filter {
+    outline: none;
+    background-color: #F0F0F0;
+    border: 0px;
+    width: 150px;
+    height: 29px;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px;
 }

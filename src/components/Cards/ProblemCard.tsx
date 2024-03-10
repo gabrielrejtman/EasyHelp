@@ -4,13 +4,20 @@ import styled from 'styled-components'
 import Problem from '../../domain/entities/Problem'
 import '../../pages/administrador/Problems/ShowProblems/styles.css'
 import { TagFilter } from '../GlobalComponents.style'
-import { handleColorDificult } from '../../adapters/ColorAdapter'
+import { handleColorDificult } from '../../utils/ColorAdapter'
+import edit from '../../assets/icons/Edit.svg'
 
 const Button = styled.button`
   outline: none;
+  border: none;
   margin-left: 20px;
   background-color: #f0f0f0;
   cursor: pointer;
+`
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    align-items: center;
 `
 
 type ProblemCardProps = {
@@ -30,14 +37,14 @@ export function ProblemCard({item} : ProblemCardProps) {
                 </div>
                 <p className="cardProblemDescription">{item.description}</p>
             </div>
-            <div className="btn-bar">
+            <ButtonsContainer>
                 <Button>
-                    <FaPencil size={15} />
+                    <img src={edit}/>
                 </Button>
                 <Button>
                     <FaTrash size={15} />
                 </Button>
-            </div>
+            </ButtonsContainer>
     </div>
   )
 }

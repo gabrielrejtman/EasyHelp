@@ -3,27 +3,27 @@ import homePage from '../../assets/icons/Home Page.svg'
 import systemReport from '../../assets/icons/System Report.svg'
 import custumer from '../../assets/icons/Customer.svg'
 
-const side_bar_pages = [
+const SidebarPagesADM = [
     {
         name: "Home",
-        url: "/",
+        url: "/adm/home",
         icon: <img src={homePage}/>
     },
     {
         name: "Histórico de Ocorrências",
-        url: "/orders",
+        url: "/adm/orders",
         icon: <img src={timeSearch}/>
     },
     {
         name: "Usuários",
-        url: "/users",
+        url: "/adm/users",
         icon: <img src={custumer}/>
     },
     {
         name: "Problemas",
-        url: "/problems",
+        url: "/adm/problems",
         icon: <img src={systemReport}/>
     },
   ]
 
-  export {side_bar_pages}
+  export {SidebarPagesADM}

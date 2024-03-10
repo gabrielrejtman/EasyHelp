@@ -2,49 +2,82 @@ import { useRef, FormEvent, useState } from 'react';
 import './styles.css';
 import { Page, Path, Title } from '../../../../components/GlobalComponents.style';
 import { useNavigate } from 'react-router-dom';
-import { ICreateProblem } from '../../../../domain/usecases/Problem/CreateProblemUseCase';
 import { CreateProblem } from '../../../../services/useCases/Problems/CreateProblem';
+import { ToastContainer, toast, Bounce} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export function RegisterProblems() {
-    const [problems, setProblems] = useState<ICreateProblem[]>([]);
-    
+    const [category, setCategory] = useState<string>('default');
+    const [difficulty, setDifficulty] = useState<string>('default');
+    const notifyError = () => {
+                            toast.error("Preencha todos os campos!", {
+                                position: "top-center",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                                transition: Bounce,
+                                });
+                            }
+
+    const notifySuccess = () => {
+        toast.success("Problema cadastrado com sucesso!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+        }
+
     const problemRef = useRef<HTMLInputElement>(null);
-    const categoryRef = useRef<HTMLInputElement>(null);
-    const difficultyRef = useRef<HTMLInputElement>(null);
     const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
     const navigate = useNavigate();
 
     const handleCancel = () => {
-        navigate('/problems');
+        navigate('/adm/problems');
     };
 
     const handleProblemRegister = async (event: FormEvent) => {
         event.preventDefault();
 
         if (!problemRef.current?.value || !descriptionRef.current?.value 
-            || !difficultyRef.current?.value || !categoryRef.current?.value) return;
-
-        try {
-            const createProblem = new CreateProblem()
-            const title = problemRef.current?.value
-            const description = descriptionRef.current?.value
-            const difficulty = difficultyRef.current?.value
-            const category = categoryRef.current?.value
-
-            const response  = createProblem.execute({title, description, difficulty, category})
-            console.log(response)
-        } catch (err) {
-            console.error(err);
+            || difficulty==="default" || category === "default"){
+                notifyError()
+                return
         }
-
-        handleCancel();
+        else{
+            try {
+                const createProblem = new CreateProblem()
+                const title = problemRef.current?.value
+                const description = descriptionRef.current?.value
+    
+                await createProblem.execute({title, description, difficulty, category})
+                
+                notifySuccess()
+            } catch (err) {
+                console.error(err);
+            }
+    
+            //handleCancel();
+        }
     };
 
     return (
         <Page>
-            <Path>Home</Path>
-            <Title>Cadastro de problemas e soluções</Title>
+            <ToastContainer/>
+
+            <Path>Problemas / Novo Cadastro</Path>
+            <Title>Cadastro de problemas</Title>
 
             <div className="problem-container">
                 <div className="problem-header">Problema</div>
@@ -59,31 +92,34 @@ export function RegisterProblems() {
 
                             <div className="select-container">
                                 <p className="label">Categoria</p>
-                                <input type="text" ref={categoryRef}/>
-                                {/* <select className="select" ref={categoryRef}>
+                                <select className="select" value={category} onChange={e => setCategory(e.target.value)}>
                                     <option value="default">Nenhum</option>
                                     <option value="elétrico">Elétrico</option>
                                     <option value="mecânico">Mecânico</option>
                                     <option value="eletrônico">Eletrônico</option>
                                     <option value="sistema">Sistema</option>
-                                </select> */}
+                                </select>
                             </div>
 
                             <div className="select-container">
                                 <p className="label">Dificuldade</p>
-                                <input ref={difficultyRef}/>
-                                {/* <select className="select" ref={difficultyRef}>
+                                <select className="select" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
                                     <option value="default">Nenhum</option>
                                     <option value="fácil">Fácil</option>
                                     <option value="médio">Médio</option>
                                     <option value="difícil">Difícil</option>
-                                </select> */}
+                                </select>
                             </div>
                         </div>
 
                         <div className="description-container">
                             <p className="label">Descrição</p>
                             <textarea className="description-textarea" ref={descriptionRef} />
+                        </div>
+
+                        <div className="description-container">
+                            <p className="label">Adicionar imagem ou vídeo</p>
+                            <input type="file" />
                         </div>
                     </form>
                 </div>
@@ -97,6 +133,7 @@ export function RegisterProblems() {
                     </button>
                 </div>
             </div>
+
         </Page>
     );
 }

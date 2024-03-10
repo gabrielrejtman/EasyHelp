@@ -35,16 +35,16 @@ export const Problems = () => {
    }, []);
 
    async function loadProblems(){
-    try {
-        const response = await showProblems.execute();
-        setProblems(response);
-      } catch (error) {
-        console.error("Falha ao carregar problemas:", error);
-      }
+        try {
+            const response = await showProblems.execute();
+            setProblems(response);
+        } catch (error) {
+            console.error("Falha ao carregar problemas:", error);
+        }
    }
 
     const handleAddProblem = () => {
-        navigate('/problems-register');
+        navigate('/adm/problems-register');
     };
 
     return (
@@ -77,9 +77,12 @@ export const Problems = () => {
                 <div className="subhead-container">
                     <div className='filter-container'>
                         <h4 className='filters-text'>Filtros</h4>
-                        <select className='select-filter'>
-                            <option value="categoria">Categoria</option>
-                            <option value="dificuldade"></option>
+                        <select className='problems-select-filter'>
+                            <option value="categoria">Todos</option>
+                            <option value="elétrico">Elétrico</option>
+                            <option value="mecânico">Mecânico</option>
+                            <option value="eletrônico">Eletrônico</option>
+                            <option value="sistema">Sistema</option>
                         </select>
                     </div>
                     <ProblemsPagination totalItems={totalItems} />
