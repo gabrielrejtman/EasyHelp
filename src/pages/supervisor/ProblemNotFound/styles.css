@@ -1,0 +1,36 @@
+.create-order-container{
+    padding-top: 20px;
+    width: 900px;
+    height: fit-content;
+
+}
+
+.create-order-header{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #1E1F28;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.create-order-content{
+    background-color: #F0F0F0;
+    padding: 20px;
+}
+
+.problem-input.disabled{
+    background-color: #A9A9AC;
+    color: #000;
+}
+
+.select.disabled{
+    background-color: #A9A9AC;
+    color: #000;
+}
+
+.input-footer{
+    display: flex;
+    padding-top: 20px;
+}
