@@ -1,23 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="57038e43-8b86-44f9-ae31-6fc8439848c7" name="Changes" comment="">
+    <list default="true" id="514e3885-e050-4809-bc32-c850ae9ee4c8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/Background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/HelpHands.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/Logout.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/specialist/Home/SpecialistDemands.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/specialist/Home/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/specialist/SideBarItens.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/Problem/CreateProblemController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/Problem/CreateProblemController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/Problem/DeleteProblemController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/Problem/DeleteProblemController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/User/CreateUserController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/User/CreateUserController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/controllers/User/DeleteUserController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/controllers/User/DeleteUserController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/PrismaProblemRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/PrismaProblemRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/PrismaUserRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/PrismaUserRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/migrations/20240303234303_init/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/migrations/20240303234303_init/migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/migrations/20240305195631_added_user/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/migrations/20240305195631_added_user/migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/migrations/migration_lock.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/migrations/migration_lock.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/Home Page.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/HomePage.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/System Report.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/SystemReport.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/Time Search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/TimeSearch.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/Cards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/Cards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/OrderCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/OrderCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cards/OrderCards.ts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards/OrderCards.ts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GlobalComponents.style.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GlobalComponents.style.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entities/Problem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entities/Problem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entities/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entities/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/entities/example.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/entities/example.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/repositories/ProblemRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/repositories/ProblemRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/repositories/UserRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/repositories/UserRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/shared/usecase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/shared/usecase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/CreateProblem/CreateProblemUseCase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/CreateProblem/ICreateProblem.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/CreateProblemUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/usecases/Problem/CreateProblemUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/DeleteProblem/DeleteProblemUseCase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/DeleteProblem/IDeleteProblem.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/Problem/DeleteProblemUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/usecases/Problem/DeleteProblemUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/CreateUser/CreateUserUseCase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/CreateUser/ICreateUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/CreateUserUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/usecases/User/CreateUserUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/DeleteUser/DeleteUserUseCase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/DeleteUser/IDeleteUser.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/usecases/User/DeleteUserUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/usecases/User/DeleteUserUseCase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/sidebar/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/sidebar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/sidebar/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/sidebar/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterAdm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Home/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Orders/Orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Orders/Orders.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Orders/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Orders/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/Problems.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Problems/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/RegisterProblem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/RegisterProblems/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/SideBarItens.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/SideBarItens.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/administrador/Users/Users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/administrador/Users/Users.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/supervisor/SearchProblems/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/supervisor/SearchProblems/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/supervisor/SideBarItens.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/supervisor/SideBarItens.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CreateProblem/CreateProblem.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,26 +99,24 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2dSOfm9n8SyO27LSu9C392QEvJh" />
+  <component name="ProjectId" id="2dWXDrOBZ6GsX3hTc04cgzaGGxW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Samsung\\repositorios\\EasyHelp\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -56,21 +128,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages\supervisor\Home" />
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages\supervisor\Home\SearchProblems" />
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\components\Cards" />
-      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\components" />
+      <recent name="C:\Users\Samsung\repositorios\EasyHelp\src\pages" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="57038e43-8b86-44f9-ae31-6fc8439848c7" name="Changes" comment="" />
-      <created>1709998126700</created>
+      <changelist id="514e3885-e050-4809-bc32-c850ae9ee4c8" name="Changes" comment="" />
+      <created>1710124699719</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709998126700</updated>
-      <workItem from="1709998129753" duration="10175000" />
+      <updated>1710124699719</updated>
+      <workItem from="1710124706350" duration="308000" />
+      <workItem from="1710125459798" duration="339000" />
     </task>
     <servers />
   </component>

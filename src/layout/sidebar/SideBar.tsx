@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import './sidebar.css'
 import diderotLogo from '../../assets/DiderotLogo.svg';
+import Logout from '../../assets/icons/Logout.svg'
 import { FaUserCircle } from "react-icons/fa";
 
 export interface SidebarItem{
@@ -40,6 +41,12 @@ function Sidebar({items}:IProps) {
                             </li>
                         )
                     })}
+                    <div className='logout-container'>
+                        <NavLink to={'/'}  className="logout">
+                            <img src={Logout}/>
+                            <div className='logout-text'>Logout</div>
+                        </NavLink>
+                    </div>
                 </ul>
             </div>
         </div>
