@@ -12,24 +12,11 @@ export default class PrismaOrderRepository implements OrderRepository {
         this.prisma = new PrismaClient();
     }
 
-    create(order: ICreateOrder): Promise<Order> {
-        return this.prisma.order.create({ data: order });
+    create(Order: ICreateOrder): Promise<Order> {
+        return this.prisma.order.create({data: Order});
     }
 
-    getOrdersCreatedBy(id_supervisor: string): Promise<Order | null> {
-        return this.prisma.order.findFirst({
-            where: {
-                id_supervisor
-            }
-        });
+    getAllOrders(): Promise<Order[]> {
+        return this.prisma.order.findMany();
     }
-
-    getAllOrders(id: string): Promise<Order | null> {
-        return this.prisma.order.findFirst({
-            where: {
-                id
-            }
-        });
-    }
-
 }

@@ -17,7 +17,6 @@ const DashboardItem = styled.div`
 
 function Home() {
   return (
-      <div>
           <Page>
             <Path>Home</Path>
             <Title>Dashboards</Title>
@@ -30,7 +29,7 @@ function Home() {
               <DashboardItem>Avaliações</DashboardItem>
             </DashboardGrid>
           </Page>
-      </div>
+    
   )
 }
 

@@ -9,8 +9,8 @@ export default class CreateUserController {
         readonly useCase: CreateUserUseCase 
     ) {
         server.post('/users', async ({body}) => {
-            const { id, name, sector, password } = body as any;
-            await useCase.execute({ id, name, sector, password });
+            const { id, name, password } = body as any;
+            await useCase.execute({ id, name , password });
 
             return {
                 status: 201,

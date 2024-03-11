@@ -1,6 +1,8 @@
 import {createBrowserRouter} from "react-router-dom";
 import { DashboardLayout } from "./layout/sidebar";
 
+import {Login} from "./pages/Login/Login"
+
 import Home from "./pages/administrador/Home/Home.tsx"
 import Users from './pages/administrador/Users/Users.tsx'
 import {Problems} from "./pages/administrador/Problems/ShowProblems/index.tsx"
@@ -13,8 +15,13 @@ import {SupervisorHistoric} from "./pages/supervisor/Orders/SupervisorHistoric.t
 import {ProblemNotFound} from "./pages/supervisor/ProblemNotFound/ProblemNotFound.tsx";
 import { ProblemDetails } from "./pages/supervisor/ProblemDetails/ProblemDetails.tsx";
 
+import {SpecialistDemands} from "./pages/specialist/Home/SpecialistDemands.tsx"
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login/>
+  },
   {
     path: "/adm",
     element: <DashboardLayout/>,
@@ -64,5 +71,14 @@ export const router = createBrowserRouter([
         element: <ProblemDetails/>
       }
     ]
+  },
+  {
+    path: '/specialist',
+    element: <DashboardLayout/>,
+    children:[
+      {
+        path: "home",
+        element: <SpecialistDemands/>
+      }]
   }
 ])

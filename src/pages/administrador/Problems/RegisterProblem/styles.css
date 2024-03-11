@@ -100,3 +100,8 @@
     font-weight: 700;
     margin-right: 10px;
 }
+
+#register-problem-form{
+    padding: 0;
+    margin: 0;
+}
