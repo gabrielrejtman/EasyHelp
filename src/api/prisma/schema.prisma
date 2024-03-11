@@ -59,13 +59,11 @@ model Specialist {
 model Order {
   id             String   @id @default(uuid())
   createdAt      DateTime @default(now())
-  finalUpdatedAt DateTime
+  finalUpdatedAt DateTime @updatedAt
   description    String
   status         String
   sector         String
   rating         Int
-  id_supervisor  String
-  id_prob        String
-
+  priority       String
   @@map("orders")
 }

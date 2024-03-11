@@ -21,6 +21,9 @@ import UpdateUserController from "./api/controllers/User/UpdateUserController";
 import DeleteUserController from "./api/controllers/User/DeleteUserController";
 import { VerifySessionUseCase } from "./domain/usecases/VerifySessionUseCase";
 import SessionController from "./api/controllers/SessionController";
+import PrismaOrderRepository from "./api/prisma/PrismaOrderRepository";
+import { CreateOrderUseCase } from "./domain/usecases/CreateOrder/CreateOrderUseCase";
+import CreateOrderController from "./api/controllers/Order/CreateOrderController";
 
 
 const server: FastifyInstance = fastify();
@@ -41,7 +44,9 @@ new ShowProblemsController(server, showProblems);
 new UpdateProblemController(server, updateProblems);
 
 
-
+const OrderRepository = new PrismaOrderRepository();
+const CreateOrder = new CreateOrderUseCase(OrderRepository);
+new CreateOrderController(server, CreateOrder);
 const userRepository = new PrismaUserRepository();
 const deleteUser = new DeleteUserUseCase(userRepository);
 const createUser = new CreateUserUseCase(userRepository);
