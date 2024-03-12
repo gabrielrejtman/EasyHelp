@@ -1,18 +1,19 @@
-import UseCase from "../../shared/usecase";
 import Problem from "../../entities/Problem";
 import ProblemRepository from "../../repositories/ProblemRepository";
 
-
 export interface ICreateProblem {
+    id?: string;
     title: string;
     description: string;
     category: string;
     difficulty: string;
 }
 
-export class CreateProblemUseCase implements UseCase<ICreateProblem, Problem> {
+export class CreateProblemUseCase{
 
-    constructor(private readonly problemRepository: ProblemRepository) {}
+    constructor(
+        private readonly problemRepository: ProblemRepository,
+    ) {}
 
     async execute(data: ICreateProblem): Promise<Problem> {
         const { title, description, category, difficulty } = data;
@@ -22,7 +23,7 @@ export class CreateProblemUseCase implements UseCase<ICreateProblem, Problem> {
         if (problemAlreadyExists) {
             throw new Error("Problem already exists!");
         }
-
-        return await this.problemRepository.create({ title, description, category, difficulty });
+        
+        return await this.problemRepository.create({ title, description, category, difficulty }); 
     }
 }

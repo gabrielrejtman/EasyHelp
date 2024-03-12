@@ -13,7 +13,7 @@ export default class PrismaProblemRepository implements ProblemRepository {
     }
 
     create(problem: ICreateProblem): Promise<Problem> {
-        return this.prisma.problem.create({data: problem})
+        return this.prisma.problem.create({data: problem});
     }
 
     getAllProblems(): Promise<Problem[]> {

@@ -24,6 +24,10 @@ import SessionController from "./api/controllers/SessionController";
 import PrismaOrderRepository from "./api/prisma/PrismaOrderRepository";
 import { CreateOrderUseCase } from "./domain/usecases/CreateOrder/CreateOrderUseCase";
 import CreateOrderController from "./api/controllers/Order/CreateOrderController";
+import { Client } from "@opensearch-project/opensearch";
+import { CreateProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/CreateProblemOpenSearchUseCase";
+import { SearchProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/SearchProblemOpenSearchUseCase";
+import { DeleteProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/DeleteProblemOpenSearchUseCase";
 
 
 const server: FastifyInstance = fastify();
@@ -32,15 +36,29 @@ const port = 3333;
 
 server.register(cors);
 
+const clientOpenSearch = new Client({
+    node: "https://localhost:9200",
+    auth: {
+        username: "admin",
+        password: "EHOSp@ul0",
+    },
+    ssl: {
+        rejectUnauthorized: false
+    },
+});
+
+const searchProblemOpenSearchUseCase = new SearchProblemOpenSearchUseCase(clientOpenSearch);
+const createProblemOpenSearchUseCase = new CreateProblemOpenSearchUseCase(clientOpenSearch);
+const deleteProblemOpenSearchUseCase = new DeleteProblemOpenSearchUseCase(clientOpenSearch);
 
 const problemRepository = new PrismaProblemRepository();
 const deleteProblem = new DeleteProblemUseCase(problemRepository);
 const createProblem = new CreateProblemUseCase(problemRepository);
 const showProblems = new ShowProblemsUseCase(problemRepository);
 const updateProblems = new UpdateProblemUseCase(problemRepository);
-new DeleteProblemController(server, deleteProblem);
-new CreateProblemController(server, createProblem);
-new ShowProblemsController(server, showProblems);
+new DeleteProblemController(server, deleteProblem, deleteProblemOpenSearchUseCase);
+new CreateProblemController(server, createProblem, createProblemOpenSearchUseCase);
+new ShowProblemsController(server, showProblems, searchProblemOpenSearchUseCase);
 new UpdateProblemController(server, updateProblems);
 
 

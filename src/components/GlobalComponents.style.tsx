@@ -23,11 +23,3 @@ export const Layout = styled.div`
     height: 100%;
     display: flex;
 `
-
-export const TagFilter = styled.div`
-    border: 1px solid ${(props) => props.color};
-    margin-left: 5px;
-    border-radius: 4px;
-    padding: 3px 12px;
-    color: ${(props) => props.color};
-`

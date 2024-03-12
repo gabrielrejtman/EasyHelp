@@ -7,6 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+}
+
 model Problem {
   id          String   @id @default(uuid())
   title       String
@@ -18,39 +25,33 @@ model Problem {
   @@map("problems")
 }
 
-model User {
-  id       String @unique
-  name     String
-  sector   String
-  password String
+model Admin {
+  id             String       @unique
+  name           String
+  password       String
+  specialistList Specialist[]
+  supervisorList Supervisor[]
 
-  @@map("users")
+  @@map("admin")
 }
 
 model Supervisor {
   id       String @unique
   name     String
-  sector   String
   password String
+  adminId  String
+  admin    Admin  @relation(fields: [adminId], references: [id])
 
   @@map("supervisors")
 }
 
-model Admin {
-  id       String @unique
-  name     String
-  role     String
-  password String
-
-  @@map("admin")
-}
-
 model Specialist {
   id       String @unique
-  role     String
   name     String
   category String
   password String
+  adminId  String
+  admin    Admin  @relation(fields: [adminId], references: [id])
 
   @@map("specialists")
 }
@@ -58,13 +59,11 @@ model Specialist {
 model Order {
   id             String   @id @default(uuid())
   createdAt      DateTime @default(now())
-  finalUpdatedAt DateTime
+  finalUpdatedAt DateTime @updatedAt
   description    String
   status         String
+  sector         String
   rating         Int
   priority       String
-  id_supervisor  String
-  id_prob        String
-
   @@map("orders")
 }
