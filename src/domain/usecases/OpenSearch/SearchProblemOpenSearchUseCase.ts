@@ -13,7 +13,7 @@ export class SearchProblemOpenSearchUseCase {
         ]
 
         const result = await this.openSearchClient.msearch({
-            index: "teste4",
+            index: "teste5",
             body: queries
         });
 
