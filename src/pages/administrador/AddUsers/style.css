@@ -1,0 +1,28 @@
+button{
+    border-radius: 8px;
+    border: none;
+    background-color: #F0F0F0;
+    width: 320px;
+    height: 180px;
+    margin-right: 16px;
+    margin-top: 34px;
+}
+
+.content{
+    float: left;
+    margin-left: 20px;
+    margin-top: 75px;
+}
+
+p{
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.a{
+    margin-left: -25px;
+}
+
+.b{
+    margin-left: -39px;
+}

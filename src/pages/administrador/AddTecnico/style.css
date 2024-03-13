@@ -1,0 +1,71 @@
+.header{
+    background-color: #1E1F28;
+    width: 826px;
+    height: 26px;
+    border-radius: 8px 8px 0px 0px;
+    padding-top: 8px;
+    margin-top: 22px;
+}
+
+.a{
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    margin-left: 22px;
+}
+
+.Corpo{
+    background-color: #F0F0F0;
+    width: 826px;
+    height: 167px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.b{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+button{
+    height: 28px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.c{
+    margin-left: 640px;
+    margin-right: 8px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.d{
+    width: 100px;
+    background-color: #1960E9;
+    color: #EEE;
+    border: none;
+}
+
+input[type="text"], select{
+    border: none;
+    background-color: #FFFDFD;
+    border-radius: 2px;
+    width: 380px;
+    height: 24px;
+}
+
+.campo p{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.campo{
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
