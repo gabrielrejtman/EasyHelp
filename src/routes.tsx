@@ -9,6 +9,8 @@ import {RegisterProblems} from "./pages/administrador/Problems/RegisterProblem/i
 import AddUsers from "./pages/administrador/AddUsers/AddUsers.tsx";
 import AddSuperv from "./pages/administrador/AddSupervisor/Add_Supervisor.tsx"
 import AddTecn from "./pages/administrador/AddTecnico/AddTecnico.tsx"
+import EdtTecn from "./pages/administrador/EditarTécnico/EditarTecnico.tsx"
+import EdtSuperv from "./pages/administrador/EditarSupervisor/EditarSupervisor.tsx"
 
 
 import {SearchProblem} from "./pages/supervisor/Home/SearchProblems/SearchProblem.tsx";
@@ -53,6 +55,14 @@ export const router = createBrowserRouter([
       {
         path: "/addtecn",
         element: <AddTecn/>
+      },
+      {
+        path: "/edttecn",
+        element: <EdtTecn/>
+      },
+      {
+        path: "/edtsuperv",
+        element: <EdtSuperv/>
       }
     ]
 
