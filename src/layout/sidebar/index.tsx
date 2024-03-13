@@ -6,7 +6,7 @@ import { SidebarPagesADM } from "../../pages/administrador/SideBarItens"
 import { SidebarPagesSupervisor } from "../../pages/supervisor/SideBarItens"
 import { SidebarPagesSpecialist } from "../../pages/specialist/SideBarItens"
 
-const userType = 3//   1: supervisor | 2: técnico
+const userType = 1//   1: supervisor | 2: técnico
 
 export const DashboardLayout = () => {
     let items: SidebarItem[]
