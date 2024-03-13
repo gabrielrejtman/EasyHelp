@@ -1,0 +1,165 @@
+.header{
+    background-color: #1E1F28;
+    width: 826px;
+    height: 26px;
+    border-radius: 8px 8px 0px 0px;
+    padding-top: 8px;
+    margin-top: 22px;
+}
+
+.a{
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    margin-left: 22px;
+}
+
+.Corpo{
+    background-color: #F0F0F0;
+    width: 826px;
+    height: 167px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.b{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+button{
+    height: 28px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 550;
+    margin-top: 12px;
+}
+
+.c{
+    margin-left: 640px;
+    margin-right: 8px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.d{
+    width: 100px;
+    background-color: #1960E9;
+    color: #EEE;
+    border: none;
+}
+
+input[type="text"], select{
+    border: none;
+    background-color: #FFFDFD;
+    border-radius: 2px;
+    width: 380px;
+    height: 24px;
+}
+
+.campo p{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.campo{
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.popup{
+    margin-top: 30px;
+    background-color: #FFF;
+    border: none;
+    width: 365px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    position: fixed;
+    top: 30%;
+    left: 39%;
+}
+
+.popup p{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.buttons{
+    margin-left: 90px;
+}
+
+.popup button{
+    margin-left: 0px;
+}
+
+.popup-warper{
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.popup-warper2{
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.popup2{
+    width: 450px;
+    height: 310px;
+    background-image: url(../../../assets/icons/engineer-cooperation.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 8px;
+    position: fixed;
+    top: 23%;
+    left: 41%;
+}
+
+.popup-content2{
+    align-items: center;
+    padding-top: 50%;
+}
+
+.bloco{
+    width: 450px;
+    height: 130px;
+    background-color: #FFF;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.bloco p{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 70px;
+}
+
+.checkmark{
+    width: 90px;
+    height: 90px;
+    background-color: #02AA8B;
+    border-radius: 50px;
+    position: fixed;
+    margin-left: 170px;
+    margin-top: -50px;
+    border: 7px solid #FFF;
+}
+
+.checkmark img{
+    margin-top: 25px;
+    margin-left: 20px;
+}
