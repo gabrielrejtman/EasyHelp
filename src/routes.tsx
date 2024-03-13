@@ -6,6 +6,9 @@ import Users from './pages/administrador/Users/Users.tsx'
 import {Problems} from "./pages/administrador/Problems/ShowProblems/index.tsx"
 import Orders from "./pages/administrador/Orders/Orders.tsx";
 import {RegisterProblems} from "./pages/administrador/Problems/RegisterProblem/index.tsx";
+import AddUsers from "./pages/administrador/AddUsers/AddUsers.tsx";
+import AddSuperv from "./pages/administrador/AddSupervisor/Add_Supervisor.tsx"
+import AddTecn from "./pages/administrador/AddTecnico/AddTecnico.tsx"
 
 
 import {SearchProblem} from "./pages/supervisor/Home/SearchProblems/SearchProblem.tsx";
@@ -38,6 +41,18 @@ export const router = createBrowserRouter([
       {
         path: "problems-register",
         element: <RegisterProblems/>
+      },
+      {
+        path: "/addusers",
+        element: <AddUsers/>
+      },
+      {
+        path: "/addsuperv",
+        element: <AddSuperv/>
+      },
+      {
+        path: "/addtecn",
+        element: <AddTecn/>
       }
     ]
 
