@@ -29,6 +29,7 @@ function Home() {
               <DashboardItem>Avaliações</DashboardItem>
             </DashboardGrid>
           </Page>
+    
   )
 }
 

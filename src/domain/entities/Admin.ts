@@ -1,6 +1,5 @@
-export default interface User {
+export interface Admin {
     id: string;
     name: string;
     password: string;
-    createdAt?: Date;
 }

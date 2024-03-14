@@ -1,7 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import { DashboardLayout } from "./layout/sidebar";
 
-import {Login} from "./pages/Login"
+import {Login} from "./pages/Login/Login"
 
 import Home from "./pages/administrador/Home/Home.tsx"
 import Users from './pages/administrador/Users/Users.tsx'

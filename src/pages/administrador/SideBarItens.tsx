@@ -1,6 +1,6 @@
-import timeSearch from '../../assets/icons/TimeSearch.svg'
-import homePage from '../../assets/icons/HomePage.svg'
-import systemReport from '../../assets/icons/SystemReport.svg'
+import timeSearch from '../../assets/icons/Time Search.svg'
+import homePage from '../../assets/icons/Home Page.svg'
+import systemReport from '../../assets/icons/System Report.svg'
 import custumer from '../../assets/icons/Customer.svg'
 
 const SidebarPagesADM = [

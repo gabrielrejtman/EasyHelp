@@ -83,7 +83,7 @@ export function RegisterProblems() {
                 <div className="problem-header">Problema</div>
 
                 <div className="problem-content">
-                    <form id="register-problem" onSubmit={handleProblemRegister}>
+                    <form id="register-problem-form" onSubmit={handleProblemRegister}>
                         <div className="input-header">
                             <div className="problem-input-container">
                                 <p className="label">Problema</p>
@@ -128,7 +128,7 @@ export function RegisterProblems() {
                     <button className="btn-cancel" onClick={handleCancel}>
                         Cancelar
                     </button>
-                    <button className="btn-save" type="submit" form="register-problem">
+                    <button className="btn-save" type="submit" form="register-problem-form">
                         Salvar
                     </button>
                 </div>

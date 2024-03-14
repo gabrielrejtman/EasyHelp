@@ -1,4 +1,4 @@
-import homePage from '../../assets/icons/HomePage.svg'
+import homePage from '../../assets/icons/Home Page.svg'
 
 
 export const SidebarPagesSpecialist = [

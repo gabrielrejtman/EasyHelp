@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdSearch, IoIosAlert } from 'react-icons/io';
 import axios from 'axios';
 import { Title, Page, Path } from '../../../components/GlobalComponents.style.tsx';
@@ -7,6 +7,8 @@ import './styles.css'
 import {useNavigate} from "react-router-dom";
 import Problem from '../../../domain/entities/Problem'
 import { ShowProblems } from '../../../services/useCases/Problems/ShowProblems.ts';
+import {ProblemsPagination} from "../../../components/Cards/ProblemsPagination.tsx";
+
 
 const SearchProblemFilter: React.FC<{ buttonName: string }> = ({buttonName,}) => {
     const [isActive, setIsActive] = useState(false);
@@ -23,10 +25,31 @@ const SearchProblemFilter: React.FC<{ buttonName: string }> = ({buttonName,}) =>
     );
 };
 
+
+
+
 export function SearchProblem() {
-    const [problems, setProblems] = useState<Problem[]>([]);
+    const ex1 = {
+        title: 'maquina não liga',
+        category: 'mecânico',
+        difficulty: 'facil',
+        description: 'A maquina apresenta sinais de...'
+    }
+    const ex2 = {
+        title: 'aaaaaaaaaaaa',
+        category: 'elétrico',
+        difficulty: 'facil',
+        description: 'A maquina apresenta sinais de...'
+    }
+
+    const [problems, setProblems] = useState<Problem[]>([ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1,ex2, ex2]);
     const [search, setSearch] = useState<string>('');
 
+
+    const itemsPerPage = 10;
+    const totalItems = problems.length;
+    const [currentPage, setCurrentPage] = useState(1);
+    const paginatedProblems = problems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     const showProblems = new ShowProblems()
     const navigate = useNavigate();
 
@@ -47,6 +70,10 @@ export function SearchProblem() {
 
     const handleNotFound = () => {
         navigate('/supervisor/problem-not-found');
+    };
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
     };
 
     return (
@@ -75,14 +102,27 @@ export function SearchProblem() {
                 <SearchProblemFilter buttonName={'Outros'}/>
             </div>
 
+            <div className="subhead-container-supervisor-home">
+                <p className="search-problem-cardTitle" id="problemasPesquisados">
+                    Problemas pesquisados
+                </p>
+                <ProblemsPagination
+                    totalItems={totalItems}
+                    itemsPerPage={itemsPerPage}
+                    currentPage={currentPage}
+                    onPageChange={handlePageChange}
+                />
+            </div>
 
-            <p className="search-problem-cardTitle" id="problemasPesquisados">
-                Problemas pesquisados
-            </p>
 
             <div className="search-problem-listOfProblems">
                 <ul>
-                    <SearchProblemCard itens={problems} />
+                    {paginatedProblems.map((problems, index) => (
+                        <li key={index}>
+                            <SearchProblemCard item={problems} />
+                        </li>
+                    ))}
+
                 </ul>
             </div>
 

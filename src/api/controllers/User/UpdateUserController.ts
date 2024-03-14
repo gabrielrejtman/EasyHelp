@@ -10,8 +10,8 @@ export default class UpdateUserController {
     ) {
         server.put('/users/:id', async ({body, params}) => {
             const { id } = params as any;
-            const { name, sector, password } = body as any;
-            const result = await useCase.execute(id, { name, sector, password });
+            const { name , password } = body as any;
+            const result = await useCase.execute(id, { name , password });
 
             return result;
         })

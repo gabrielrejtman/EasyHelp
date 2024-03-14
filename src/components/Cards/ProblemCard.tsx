@@ -1,5 +1,4 @@
-import React from 'react'
-import { FaPencil, FaTrash} from 'react-icons/fa6'
+import { FaTrash} from 'react-icons/fa6'
 import styled from 'styled-components'
 import Problem from '../../domain/entities/Problem'
 import '../../pages/administrador/Problems/ShowProblems/styles.css'
@@ -25,7 +24,8 @@ type ProblemCardProps = {
 }
 
 export function ProblemCard({item} : ProblemCardProps) {
-  return (
+    return (
+
     <div key={item.id} className="problemCard">
             <div className="problemCardContent">
                 <div className="problemCardHead">

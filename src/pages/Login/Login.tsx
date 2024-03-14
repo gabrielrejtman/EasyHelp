@@ -1,5 +1,5 @@
-import hands from '../assets/icons/HelpHands.svg'
-import diderotLogo from '../assets/DiderotLogo.svg'
+import hands from '../../assets/icons/HelpHands.svg'
+import diderotLogo from '../../assets/DiderotLogo.svg'
 import './login.css'
 
 export function Login() {

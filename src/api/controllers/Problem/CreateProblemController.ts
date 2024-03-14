@@ -9,7 +9,7 @@ export default class CreateProblemController {
         readonly useCase: CreateProblemUseCase 
     ) {
         server.post('/problems', async ({body}) => {
-            const { title, description, category, difficulty } = body as any;
+            const { title, description, category, difficulty } = <any>body;
             const result = await useCase.execute({ title, description, category, difficulty });
 
             return result;

@@ -1,6 +1,6 @@
-export default interface User {
+export interface Supervisor{
     id: string;
     name: string;
     password: string;
-    createdAt?: Date;
+    adminId?: string;
 }
