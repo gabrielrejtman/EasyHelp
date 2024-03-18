@@ -1,0 +1,25 @@
+.button-save-pdf{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    background-color: #1960E9;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight:600;
+    color: white;
+    padding: 8px 12px;
+}
+
+.button-save-pdf-content{
+    display: flex;
+}
+
+.button-save-pdf-text{
+    margin-top: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}

@@ -1,6 +1,11 @@
+import { Role } from "@prisma/client";
+
+
 export default interface User {
-    id: string;
+    id?: string;
+    registration: string;
     name: string;
     password: string;
-    createdAt?: Date;
+    role: Role;
+    createdAt: Date;
 }

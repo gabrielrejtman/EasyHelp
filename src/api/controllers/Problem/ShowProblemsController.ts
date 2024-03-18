@@ -6,7 +6,7 @@ export default class ShowProblemsController {
 
     constructor(
         readonly server: FastifyInstance,
-        readonly useCase: ShowProblemsUseCase 
+        readonly useCase: ShowProblemsUseCase,
     ) {
         server.get('/problems', async () => {
             const result = await useCase.execute();

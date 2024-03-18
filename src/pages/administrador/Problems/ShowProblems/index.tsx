@@ -1,105 +1,102 @@
-import React, { useEffect, useState } from 'react'
-import { Page, Path, Title } from '../../../../components/GlobalComponents.style'
-import { useNavigate } from 'react-router-dom'
-import add from '../../../../assets/icons/Add.svg'
-import searchIcon from '../../../../assets/icons/Search.svg'
-import './styles.css'
-import Problem from '../../../../domain/entities/Problem'
-import { ShowProblems} from '../../../../services/useCases/Problems/ShowProblems'
-import { ProblemCard } from '../../../../components/Cards/ProblemCard'
-import {ProblemsPagination} from "../../../../components/Cards/ProblemsPagination.tsx";
+import React, { useEffect, useState } from 'react';
+import { Page, Path, Title } from '../../../../components/GlobalComponents.style';
+import { BiSolidLeftArrow, BiSolidRightArrow } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
+import add from '../../../../assets/icons/Add.svg';
+import searchIcon from '../../../../assets/icons/Search.svg';
+import './styles.css';
+import Problem from '../../../../domain/entities/Problem';
+import { ShowProblems } from '../../../../services/useCases/Problems/ShowProblems';
+import { ProblemCard } from '../../../../components/Cards/ProblemCard';
+import { SearchProblemUseCase } from '../../../../services/useCases/Problems/SearchProblem';
 
+const ProblemsPagination: React.FC<{ totalItems: number }> = ({ totalItems }) => (
+    <div className="btn-pages">
+        <BiSolidLeftArrow size={14} />
+        <p className="pages-index">1-10 de {totalItems}</p>
+        <BiSolidRightArrow size={14} />
+    </div>
+);
 
 export const Problems = () => {
-    //States
-    //const [search, setSearch] = useState<string>('');
+
+    // States
     const [problems, setProblems] = useState<Problem[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>(''); // State for searchTerm
 
-    const [filteredProblems, setFilteredProblems] = useState<Problem[]>(problems);
-    const [currentPageProblems, setCurrentPageProblems] = useState<Problem[]>([]);
-
-    //Global constants
-    const showProblems = new ShowProblems()
-    const itemsPerPage = 10;
-    const [currentPage, setCurrentPage] = useState(1);
+    // Global constants
+    const totalItems = problems.length;
     const navigate = useNavigate();
+    const [search, setSearch] = useState<Problem[]>([]);
+    const showProblems = new ShowProblems();
+    
+    useEffect(() => {
+        loadProblems();
+    }, []);
 
-    const handleAddProblem = () => {
-        navigate('/adm/problems-register');
-    };
-
-    const handlePageChange = (page: number) => {
-        setCurrentPage(page);
-    };
-
-    const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedValue = event.target.value;
-        if (selectedValue === 'categoria') {
-            setFilteredProblems(problems);
-        }
-        else {
-            const filtered = problems.filter(problem => problem.category === selectedValue); // Supondo que a categoria do problema esteja disponível como problem.category
-            setFilteredProblems(filtered);
-        }
-    };
-
-    const updateCurrentPageProblems = () => {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        setCurrentPageProblems(filteredProblems.slice(startIndex, endIndex));
-    };
-
-   useEffect(() => {
-       loadProblems()
-   }, []);
-
-   async function loadProblems(){
+    async function loadProblems() {
         try {
             const response = await showProblems.execute();
             setProblems(response);
         } catch (error) {
             console.error("Falha ao carregar problemas:", error);
         }
-   }
+    }
 
-    React.useEffect(() => {
-        updateCurrentPageProblems();
-    }, [currentPage, filteredProblems]);
+    const handleAddProblem = () => {
+        navigate('/adm/problems-register');
+    };
 
-    let totalItems = filteredProblems.length;
+    const handleSearch = async () => {
+        if (!searchTerm) { // Check searchTerm directly
+            return;
+        }
+
+        try {
+            const searchProblem = new SearchProblemUseCase();
+            const res = await searchProblem.execute({ title: searchTerm });
+            setSearch(res);
+            console.log(search);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <Page>
             <div className='page'>
                 <Path>Home</Path>
                 <Title>Problemas e soluções</Title>
 
-                {/*Add Problem, Search Bar*/}
+                {/* Add Problem, Search Bar */}
                 <div className="head-container">
-                    {/*Add Problem*/}
+                    {/* Add Problem */}
                     <div>
                         <button className="btn-add-problem" onClick={handleAddProblem}>
                             <div className='itens-btn-add'>
-                                <img src={add}/>
+                                <img src={add} alt="Add" />
                                 <p className='btn-text'>Novo Cadastro</p>
                             </div>
                         </button>
                     </div>
-                    {/*Search Bar*/}
+                    {/* Search Bar */}
                     <div className="containerInput">
-
-                        <button className="buttonSearch">
-                            <img src={searchIcon}/>
+                        <button onClick={handleSearch} className="buttonSearch">
+                            <img src={searchIcon} alt="Search" />
                         </button>
-                        <input type="text" placeholder="Buscar por Problemas" maxLength={200} />
+                        <input 
+                            type="text" 
+                            placeholder="Buscar por Problemas" 
+                            value={searchTerm} // Use searchTerm state here
+                            onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm state
+                            maxLength={200} 
+                        />
                     </div>
-
                 </div>
-
-                {/*Filter, Pagination*/}
                 <div className="subhead-container">
                     <div className='filter-container'>
                         <h4 className='filters-text'>Filtros</h4>
-                        <select className='problems-select-filter' onChange={handleFilterChange}>
+                        <select className='problems-select-filter'>
                             <option value="categoria">Todos</option>
                             <option value="elétrico">Elétrico</option>
                             <option value="mecânico">Mecânico</option>
@@ -107,24 +104,20 @@ export const Problems = () => {
                             <option value="sistema">Sistema</option>
                         </select>
                     </div>
-                    <ProblemsPagination
-                        totalItems={totalItems}
-                        itemsPerPage={itemsPerPage}
-                        currentPage={currentPage}
-                        onPageChange={handlePageChange}
-                    />
+                    <ProblemsPagination totalItems={totalItems} />
                 </div>
 
                 <div className="problemsList">
-                    <ul>
-                        {currentPageProblems.map((problem, index) => (
-                        <li key={index}>
-                            <ProblemCard item={problem}/>
-                        </li>
-                    ))}
-                    </ul>
+                    {searchTerm === '' ? ( // Check searchTerm here
+                        <ul>{problems.map((problem) => (
+                            <ProblemCard key={problem.id} item={problem} />
+                        ))}</ul>
+                    ) : (
+                        <ul>{search.map((problem) => (
+                            <ProblemCard key={problem.id} item={problem} />
+                        ))}</ul>
+                    )}
                 </div>
-
             </div>
         </Page>
     );

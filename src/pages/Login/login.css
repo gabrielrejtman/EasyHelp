@@ -40,7 +40,7 @@ form p{
     line-height: normal;
 }
 
-input[type="text"]{
+.text-input-login{
     border-radius: 4px;
     background-color: #F0F0F0;
     border: none;
@@ -106,11 +106,11 @@ input[type="submit"]{
 
 
 .a{
-    width: 215px;
+    width: 280px;
 }
 
 .b{
-    width: 180px;
+    width: 200px;
 }
 
 .texto img{
@@ -122,4 +122,10 @@ input[type="submit"]{
 .canto{
     margin-top: 20px;
     margin-left: 20px;
+}
+
+.btn-send-login{
+    cursor:pointer;
+    outline: none;
+    border: none;
 }

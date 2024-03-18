@@ -31,23 +31,3 @@ export const TagFilter = styled.div`
     padding: 3px 12px;
     color: ${(props) => props.color};
 `
-
-//Styling Modal 
-export const BackgroundModal = styled.div`
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgb(0, 0, 0, 0.7);
-    z-index: 1000;
-`
-
-export const ModalStyle = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius:8px;
-`

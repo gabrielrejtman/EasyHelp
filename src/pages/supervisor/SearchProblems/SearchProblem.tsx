@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IoMdSearch, IoIosAlert } from 'react-icons/io';
 import axios from 'axios';
 import { Title, Page, Path } from '../../../components/GlobalComponents.style.tsx';
@@ -7,8 +7,9 @@ import './styles.css'
 import {useNavigate} from "react-router-dom";
 import Problem from '../../../domain/entities/Problem'
 import { ShowProblems } from '../../../services/useCases/Problems/ShowProblems.ts';
-import {ProblemsPagination} from "../../../components/Cards/ProblemsPagination.tsx";
-
+import { SearchProblemOpenSearchUseCase } from '../../../domain/usecases/OpenSearch/SearchProblemOpenSearchUseCase.ts';
+import { SearchProblemUseCase } from '../../../services/useCases/Problems/SearchProblem.ts'
+import { title } from 'process';
 
 const SearchProblemFilter: React.FC<{ buttonName: string }> = ({buttonName,}) => {
     const [isActive, setIsActive] = useState(false);
@@ -25,31 +26,10 @@ const SearchProblemFilter: React.FC<{ buttonName: string }> = ({buttonName,}) =>
     );
 };
 
-
-
-
 export function SearchProblem() {
-    const ex1 = {
-        title: 'maquina não liga',
-        category: 'mecânico',
-        difficulty: 'facil',
-        description: 'A maquina apresenta sinais de...'
-    }
-    const ex2 = {
-        title: 'aaaaaaaaaaaa',
-        category: 'elétrico',
-        difficulty: 'facil',
-        description: 'A maquina apresenta sinais de...'
-    }
-
-    const [problems, setProblems] = useState<Problem[]>([ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1, ex1,ex2, ex2]);
-    const [search, setSearch] = useState<string>('');
-
-
-    const itemsPerPage = 10;
-    const totalItems = problems.length;
-    const [currentPage, setCurrentPage] = useState(1);
-    const paginatedProblems = problems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const [problems, setProblems] = useState<Problem[]>([]);
+    const [search, setSearch] = useState<Problem[]>([]);
+    const searchTerm = useRef<HTMLInputElement>(null)
     const showProblems = new ShowProblems()
     const navigate = useNavigate();
 
@@ -72,9 +52,23 @@ export function SearchProblem() {
         navigate('/supervisor/problem-not-found');
     };
 
-    const handlePageChange = (page: number) => {
-        setCurrentPage(page);
-    };
+    const handleSearch = async () => {
+        console.log("sexo");
+        if(!searchTerm.current?.value){
+            return 
+        }
+
+        try{
+            const searchProblem = new SearchProblemUseCase();
+            const title = searchTerm.current?.value;
+            const res = await searchProblem.execute({title});
+            setSearch(res);
+            console.log(search);
+
+        }catch(error){
+            console.log(error);
+        }
+    }
 
     return (
         <Page>
@@ -83,14 +77,14 @@ export function SearchProblem() {
             <Title>Buscar Problemas</Title>
 
             <div className="search-problem-containerInput">
-                <button className="search-problem-buttonSearch">
+                <button onClick={handleSearch} className="search-problem-buttonSearch">
                     <IoMdSearch size={24} color="#000" />
                 </button>
                 <input
                     type="text"
                     placeholder="Digite o problema"
                     maxLength={200}
-                    onChange={(e) => setSearch(e.target.value)}
+                    ref ={searchTerm}
                 />
             </div>
 
@@ -102,27 +96,14 @@ export function SearchProblem() {
                 <SearchProblemFilter buttonName={'Outros'}/>
             </div>
 
-            <div className="subhead-container-supervisor-home">
-                <p className="search-problem-cardTitle" id="problemasPesquisados">
-                    Problemas pesquisados
-                </p>
-                <ProblemsPagination
-                    totalItems={totalItems}
-                    itemsPerPage={itemsPerPage}
-                    currentPage={currentPage}
-                    onPageChange={handlePageChange}
-                />
-            </div>
 
+            <p className="search-problem-cardTitle" id="problemasPesquisados">
+                Problemas pesquisados
+            </p>
 
             <div className="search-problem-listOfProblems">
                 <ul>
-                    {paginatedProblems.map((problems, index) => (
-                        <li key={index}>
-                            <SearchProblemCard item={problems} />
-                        </li>
-                    ))}
-
+                    <SearchProblemCard itens={problems} />
                 </ul>
             </div>
 

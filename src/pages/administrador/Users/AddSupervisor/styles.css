@@ -1,0 +1,71 @@
+.addSupervisor-header {
+    background-color: #1E1F28;
+    width: 826px;
+    height: 26px;
+    border-radius: 8px 8px 0px 0px;
+    padding-top: 8px;
+    margin-top: 22px;
+}
+
+.addSupervisor-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    margin-left: 22px;
+}
+
+.addSupervisor-body {
+    background-color: #F0F0F0;
+    width: 826px;
+    height: 167px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.addSupervisor-note {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.button {
+    height: 28px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.addSupervisor-cancel {
+    margin-left: 640px;
+    margin-right: 8px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.addSupervisor-register {
+    width: 100px;
+    background-color: #1960E9;
+    color: #EEE;
+    border: none;
+}
+
+.input-name, .input-registration-number {
+    border: none;
+    background-color: #ffffff;
+    border-radius: 2px;
+    width: 380px;
+    height: 24px;
+} 
+
+.addSupervisor-field p{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.addSupervisor-field {
+    margin-left: 24px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

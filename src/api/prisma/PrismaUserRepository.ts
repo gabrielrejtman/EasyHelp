@@ -20,12 +20,19 @@ export default class PrismaUserRepository implements UserRepository {
         return this.prisma.user.findMany();
     }
 
-    getUsers(id: string): Promise<User | null> {
+    getUser(registration: string): Promise<User | null> {
       return this.prisma.user.findFirst({
         where: {
-            id
+            registration
         }
       })
+    }
+    getUserByName(name: string): Promise<User[]> {
+        return this.prisma.user.findMany({
+            where: {
+                name: {contains: name}
+            }
+        })
     }
 
     updateUser(id: string, user: IUpdateUser): Promise<User> {

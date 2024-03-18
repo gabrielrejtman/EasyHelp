@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import './sidebar.css'
+import './SideBar.css'
 import diderotLogo from '../../assets/DiderotLogo.svg';
 import Logout from '../../assets/icons/Logout.svg'
 import { FaUserCircle } from "react-icons/fa";

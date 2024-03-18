@@ -3,11 +3,18 @@ import { DashboardLayout } from "./layout/sidebar";
 
 import {Login} from "./pages/Login/Login"
 
+
+
 import Home from "./pages/administrador/Home/Home.tsx"
-import Users from './pages/administrador/Users/Users.tsx'
-import {Problems} from "./pages/administrador/Problems/ShowProblems/index.tsx"
 import Orders from "./pages/administrador/Orders/Orders.tsx";
+
+import {Problems} from "./pages/administrador/Problems/ShowProblems/index.tsx"
 import {RegisterProblems} from "./pages/administrador/Problems/RegisterProblem/index.tsx";
+
+import {Users} from './pages/administrador/Users/ShowUsers/index.tsx'
+import {AddUsers} from './pages/administrador/Users/AddUsers/index.tsx'
+import {RegisterSupervisor} from "./pages/administrador/Users/AddSupervisor/index.tsx";
+import {RegisterSpecialist} from "./pages/administrador/Users/AddSpecialist/index.tsx";
 
 
 import {SearchProblem} from "./pages/supervisor/SearchProblems/SearchProblem.tsx";
@@ -15,12 +22,22 @@ import {SupervisorHistoric} from "./pages/supervisor/Orders/SupervisorHistoric.t
 import {ProblemNotFound} from "./pages/supervisor/ProblemNotFound/ProblemNotFound.tsx";
 import { ProblemDetails } from "./pages/supervisor/ProblemDetails/ProblemDetails.tsx";
 
+
 import {SpecialistDemands} from "./pages/specialist/Home/SpecialistDemands.tsx"
+
+import {ReportReview} from "./layout/Reports/ReportLayout/ReportReview.tsx";
+
+
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Login/>
+  },
+  {
+    path: "/report-review",
+    element: <ReportReview/>
   },
   {
     path: "/adm",
@@ -35,10 +52,25 @@ export const router = createBrowserRouter([
         path: "orders",
         element: <Orders/>
       },
+
       {
         path: "users",
-        element: <Users/>
+        element: <Users/>,
       },
+      {
+        path: "users-register",
+        element: <AddUsers/>
+      },
+      {
+        path: "supervisor-register",
+        element: <RegisterSupervisor/>
+      },
+      {
+        path: "specialist-register",
+        element: <RegisterSpecialist/>
+      },
+
+
       {
         path: "problems",
         element: <Problems/>,
@@ -82,3 +114,4 @@ export const router = createBrowserRouter([
       }]
   }
 ])
+

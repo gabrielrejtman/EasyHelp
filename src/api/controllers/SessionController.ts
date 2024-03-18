@@ -8,9 +8,9 @@ export default class SessionController {
         readonly usecase: VerifySessionUseCase
     ) {
         server.post('/login', async ({ body }) => {
-            const { id, password } = body as any;
+            const { registration, password } = body as any;
 
-            const result = await usecase.execute({ id, password });
+            const result = await usecase.execute({ registration, password });
 
             return result;
         })

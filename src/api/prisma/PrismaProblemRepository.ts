@@ -13,19 +13,27 @@ export default class PrismaProblemRepository implements ProblemRepository {
     }
 
     create(problem: ICreateProblem): Promise<Problem> {
-        return this.prisma.problem.create({data: problem})
+        return this.prisma.problem.create({data: problem});
     }
 
     getAllProblems(): Promise<Problem[]> {
         return this.prisma.problem.findMany();
     }
 
-    getProblemsByTitle(title: string): Promise<Problem | null> {
-      return this.prisma.problem.findFirst({
+    getProblemsByTitle(title: string): Promise<Problem[] | null> {
+      return this.prisma.problem.findMany({
         where: {
-            title
-        }
+            title: {contains: title},
+        },
       })
+    }
+
+    getProblemByTitle(title: string): Promise<Problem | null> {
+        return this.prisma.problem.findFirst({
+            where: {
+                title,
+            },
+        })
     }
 
     updateProblem(id: string, problem: IUpdateProblem): Promise<Problem> {

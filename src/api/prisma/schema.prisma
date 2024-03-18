@@ -18,53 +18,32 @@ model Problem {
   @@map("problems")
 }
 
+enum Role {
+  ADMIN
+  SUPERVISOR
+  SPECIALIST
+}
+
 model User {
-  id       String @unique
-  name     String
-  sector   String
-  password String
+  id           String   @id @default(uuid())
+  registration String   @unique
+  name         String
+  password     String
+  role         Role
+  createdAt    DateTime @default(now())
 
   @@map("users")
-}
-
-model Supervisor {
-  id       String @unique
-  name     String
-  sector   String
-  password String
-
-  @@map("supervisors")
-}
-
-model Admin {
-  id       String @unique
-  name     String
-  role     String
-  password String
-
-  @@map("admin")
-}
-
-model Specialist {
-  id       String @unique
-  role     String
-  name     String
-  category String
-  password String
-
-  @@map("specialists")
 }
 
 model Order {
   id             String   @id @default(uuid())
   createdAt      DateTime @default(now())
-  finalUpdatedAt DateTime
+  finalUpdatedAt DateTime @updatedAt
   description    String
   status         String
+  sector         String
   rating         Int
   priority       String
-  id_supervisor  String
-  id_prob        String
 
   @@map("orders")
 }

@@ -7,11 +7,6 @@
     max-width: 600px;
 }
 
-.subhead-container-supervisor-home{
-    display: flex;
-    padding-top: 19px;
-    justify-content: space-between;
-}
 .search-problem-containerInput input {
     background-color: transparent;
     border: 0;
@@ -92,6 +87,7 @@
 }
 
 .search-problem-cardTitle {
+    margin-top: 15px;
     font-size: 16px;
     font-weight: bold;
 }

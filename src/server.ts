@@ -22,9 +22,20 @@ import DeleteUserController from "./api/controllers/User/DeleteUserController";
 import { VerifySessionUseCase } from "./domain/usecases/VerifySessionUseCase";
 import SessionController from "./api/controllers/SessionController";
 import PrismaOrderRepository from "./api/prisma/PrismaOrderRepository";
-import { CreateOrderUseCase } from "./domain/usecases/CreateOrder/CreateOrderUseCase";
+import { CreateOrderUseCase } from "./domain/usecases/Order/CreateOrderUseCase";
 import CreateOrderController from "./api/controllers/Order/CreateOrderController";
-
+import { Client } from "@opensearch-project/opensearch";
+import { CreateProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/CreateProblemOpenSearchUseCase";
+import { SearchProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/SearchProblemOpenSearchUseCase";
+import { DeleteProblemOpenSearchUseCase } from "./domain/usecases/OpenSearch/DeleteProblemOpenSearchUseCase";
+import SearchProblemController from "./api/controllers/Problem/SearchProblemController";
+import { GetAllOrdersUseCase } from "./domain/usecases/Order/GetAllOrdersUseCase";
+import { UpdateOrderUseCase } from "./domain/usecases/Order/UpdateOrderUseCase";
+import GetAllOrdersController from "./api/controllers/Order/GetAllOrdersController";
+import UpdateOrderController from "./api/controllers/Order/UpdateOrderController";
+import { SearchsProblemsUseCase } from "./domain/usecases/Problem/SearchProblemUseCase";
+import { SearchUsersUseCase } from "./domain/usecases/User/SearchUserUseCase";
+import SearchUsersController from "./api/controllers/User/SearchUserController";
 
 const server: FastifyInstance = fastify();
 const port = 3333;
@@ -32,30 +43,59 @@ const port = 3333;
 
 server.register(cors);
 
+const clientOpenSearch = new Client({
+    node: "https://localhost:9200",
+    auth: {
+        username: "admin",
+        password: "EHOSp@ul0",
+    },
+    ssl: {
+        rejectUnauthorized: false
+    },
+});
 
+// open search
+const searchProblemOpenSearchUseCase = new SearchProblemOpenSearchUseCase(clientOpenSearch);
+const createProblemOpenSearchUseCase = new CreateProblemOpenSearchUseCase(clientOpenSearch);
+const deleteProblemOpenSearchUseCase = new DeleteProblemOpenSearchUseCase(clientOpenSearch);
+
+
+// problems
 const problemRepository = new PrismaProblemRepository();
 const deleteProblem = new DeleteProblemUseCase(problemRepository);
 const createProblem = new CreateProblemUseCase(problemRepository);
 const showProblems = new ShowProblemsUseCase(problemRepository);
 const updateProblems = new UpdateProblemUseCase(problemRepository);
-new DeleteProblemController(server, deleteProblem);
-new CreateProblemController(server, createProblem);
+const searchProblems = new SearchsProblemsUseCase(problemRepository);
+new DeleteProblemController(server, deleteProblem, deleteProblemOpenSearchUseCase);
+new CreateProblemController(server, createProblem, createProblemOpenSearchUseCase);
 new ShowProblemsController(server, showProblems);
 new UpdateProblemController(server, updateProblems);
+new SearchProblemController(server, searchProblems, searchProblemOpenSearchUseCase);
 
 
-const OrderRepository = new PrismaOrderRepository();
-const CreateOrder = new CreateOrderUseCase(OrderRepository);
-new CreateOrderController(server, CreateOrder);
+// order
+const orderRepository = new PrismaOrderRepository();
+const createOrder = new CreateOrderUseCase(orderRepository);
+const getAllOrders = new GetAllOrdersUseCase(orderRepository);
+const updateOrder = new UpdateOrderUseCase(orderRepository);
+new CreateOrderController(server, createOrder);
+new GetAllOrdersController(server, getAllOrders);
+new UpdateOrderController(server, updateOrder);
+
+
+// user
 const userRepository = new PrismaUserRepository();
 const deleteUser = new DeleteUserUseCase(userRepository);
 const createUser = new CreateUserUseCase(userRepository);
 const updateUser = new UpdateUserUseCase(userRepository);
 const showUsers = new ShowUsersUseCase(userRepository);
+const searchUser = new SearchUsersUseCase(userRepository);
 const authUser = new VerifySessionUseCase(userRepository);
 new SessionController(server, authUser);
 new CreateUserController(server, createUser);
 new ShowUsersController(server, showUsers);
+new SearchUsersController(server, searchUser);
 new UpdateUserController(server, updateUser);
 new DeleteUserController(server, deleteUser);
 

@@ -5,25 +5,24 @@ import { Sidebar, SidebarItem } from "./SideBar"
 import { SidebarPagesADM } from "../../pages/administrador/SideBarItens"
 import { SidebarPagesSupervisor } from "../../pages/supervisor/SideBarItens"
 import { SidebarPagesSpecialist } from "../../pages/specialist/SideBarItens"
-
-const userType = 1//   1: supervisor | 2: técnico
+import { res } from "../../pages/Login/Login"
 
 export const DashboardLayout = () => {
     let items: SidebarItem[]
-    if (userType === 1) {
-        items = SidebarPagesSupervisor
-    }
 
-    else {
-        if (userType === 2){
+    switch(res){
+        case 'SUPERVISOR':
+            items = SidebarPagesSupervisor
+            break;
+        case 'SPECIALIST':
             items = SidebarPagesSpecialist
-        }
-        else{
+            break;
+        case 'ADMIN':
             items = SidebarPagesADM
-        }
+            break;
+        default:
+            items = SidebarPagesADM
     }
-
-    
 
     return (
         <Layout>

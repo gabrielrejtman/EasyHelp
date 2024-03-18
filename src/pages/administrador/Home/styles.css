@@ -1,0 +1,81 @@
+.dashboard-grid{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.dashboard-item {
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 16px;
+    border-radius: 8px;
+    width: 480px;
+    height: 280px;
+}
+.dashboard-head{
+    display: flex;
+}
+
+.dashboard-item-title {
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.data-container{
+    margin-top: 5px;
+    display: flex;
+
+}
+
+.title-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-create-pdf{
+    margin-top: 24px;
+    background-color: #1960E9;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight:600;
+    color: white;
+    padding: 8px 12px;
+}
+
+.button-create-pdf-content{
+    display: flex;
+}
+
+.button-create-pdf-text{
+    margin-top: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+
+.data-input{
+    margin: 0 10px 0;
+    border-radius: 4px;
+    background: #F0F0F0;
+    outline: none;
+    border: 0;
+    width: 140px;
+    height: 24px;
+    flex-shrink: 0;;
+}
+
+.data-text{
+    margin-left: 5px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}

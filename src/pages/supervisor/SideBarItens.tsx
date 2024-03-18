@@ -3,7 +3,7 @@ import timeSearch from "../../assets/icons/Time Search.svg";
 
 const SidebarPagesSupervisor = [
     {
-        name: 'Home',
+        name: 'home',
         url: "/supervisor/home",
         icon: <img src={homePage}/>
     },

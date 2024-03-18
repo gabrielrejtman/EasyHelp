@@ -3,18 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import {handleColorDificult} from "../../../utils/ColorAdapter.ts";
 import img from "../../../assets/ImgExemple.png"
 import './styles.css'
-import { useLocation } from 'react-router-dom';
 
 export function ProblemDetails() {
-    const location = useLocation();
-    const { item } = location.state;
+    const problem = {title:"A máquina não funciona", 
+                    description:"Lorem ipsum dolor sit amet. Vel assumenda voluptas ut amet placeat aut reprehenderit galisum ea libero dolorem et quam sint. Et sunt dolore sed mollitia dolore et quasi dolore quo omnis quae. Et perspiciatis neque ut deleniti nulla est fugiat exercitationem ut doloremque voluptate hic aliquid cumque qui praesentium ",
+                    category:"elétrico", difficulty:"fácil"}
+
     const navigate = useNavigate();
 
     const handleCancel = () => {
         navigate('/supervisor/home');
-    };
-    const handleCreateOrder = () => {
-        navigate('/supervisor/problem-not-found');
     };
 
     return (
@@ -25,15 +23,15 @@ export function ProblemDetails() {
 
                 <div className='problem-details-container'>
                     <div className='problem-details-header'>
-                        <p className='problem-title'>{item.title}</p>
+                        <p className='problem-title'>{problem.title}</p>
                         <div className='problemTags'>
-                                <TagFilter color={'#02AA8B'}>{item.category}</TagFilter>
-                                <TagFilter color={handleColorDificult(item.difficulty)}>{item.difficulty}</TagFilter>
+                                <TagFilter color={'#02AA8B'}>{problem.category}</TagFilter>
+                                <TagFilter color={handleColorDificult(problem.difficulty)}>{problem.difficulty}</TagFilter>
                         </div>
                     </div>
 
                     <div className="problem-details-description-container">
-                            <p className="problem-details-description-content">{item.description}</p>
+                            <p className="problem-details-description-content">{problem.description}</p>
 
                             <img src={img} className='problem-img'/>
 
@@ -43,7 +41,7 @@ export function ProblemDetails() {
                         <button className="btn-cancel" onClick={handleCancel}>
                             Voltar
                         </button>
-                        <button className="btn-save" type="submit" onClick={handleCreateOrder}>
+                        <button className="btn-save" type="submit" form="register-order-not-found">
                                 Gerar Ocorrência
                         </button>
                     </div>
