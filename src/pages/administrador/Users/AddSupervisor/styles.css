@@ -1,0 +1,87 @@
+.addSupervisor-header {
+    background-color: #1E1F28;
+    border-radius: 8px 8px 0px 0px;
+    padding: 8px;
+    margin-top: 22px;
+}
+
+.addSupervisor-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #EEE;
+    padding-left: 14px;
+}
+
+.addSupervisor-body {
+    padding: 24px;
+    background-color: #F0F0F0;
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addSupervisor-note {
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 7px;
+}
+
+.button {
+    height: 28px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.addSupervisor-cancel {
+    margin-left: 640px;
+    margin-right: 8px;
+    width: 80px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.addSupervisor-register {
+    width: 100px;
+    background-color: #1960E9;
+    color: #EEE;
+    border: none;
+}
+
+.input-name, .input-registration-number {
+    border: none;
+    background-color: #ffffff;
+    border-radius: 2px;
+    width: 380px;
+    height: 24px;
+} 
+
+.addSupervisor-field {
+    margin-left: 24px;
+}
+
+.addSupervisor-name{
+    outline: none;
+    border: 0px;
+    width: 380px;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.addSupervisor-label{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.addSupervisor-registration{
+    outline: none;
+    border: 0px;
+    width: 230px;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 14px;
+}

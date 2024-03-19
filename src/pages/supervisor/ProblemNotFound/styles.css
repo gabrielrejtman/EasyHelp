@@ -1,0 +1,99 @@
+.create-order-container{
+    padding-top: 20px;
+    width: 900px;
+    height: fit-content;
+
+}
+
+.create-order-header{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #1E1F28;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.create-order-content{
+    background-color: #F0F0F0;
+    padding: 15px;
+}
+
+.problem-input.disabled{
+    background-color: #A9A9AC;
+    color: #000;
+}
+
+.select.disabled{
+    background-color: #A9A9AC;
+    color: #000;
+}
+
+.input-footer{
+    display: flex;
+    padding: 10px 5px 5px 10px;
+}
+
+#register-order-not-found{
+    padding: 0;
+    margin: 0;
+}
+
+.evaluation-starts{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.btn-star{
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+
+.star-image{
+    width: 33px;
+}
+
+.input-header-problem-not-found{
+    display: flex;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.label-container{
+    background-color: #1E1F28;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size:11px;
+    font-weight:600;
+    width: fit-content;
+}
+
+.containers-info{
+    background-color: #d9d9d9;
+    border-radius: 5px;
+}
+
+.description-container-order{
+    padding: 10px 5px 5px 10px;
+}
+
+.description-textarea-order{
+    width: 800px;
+    height: 120px;
+    outline: none;
+    border: 0;
+    padding: 5px;
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+}

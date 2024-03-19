@@ -1,0 +1,16 @@
+.pagination-element{
+    float: right;
+}
+
+
+.left-section{
+    display: flex;
+}
+
+.head-container-users {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 23px 110px 0 0;
+}

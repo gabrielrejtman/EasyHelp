@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Problem {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @db.Text
+  category    String
+  difficulty  String
+  createdAt   DateTime @default(now())
+  Order       Order[]
+
+  @@map("problems")
+}
+
+enum Role {
+  ADMIN
+  SUPERVISOR
+  SPECIALIST
+}
+
+model User {
+  id               String   @id @default(uuid())
+  registration     String   @unique
+  name             String
+  password         String
+  role             Role
+  createdAt        DateTime @default(now())
+  specialistOrders Order[]  @relation(name: "Specialist_Order")
+  supervisorOrders Order[]  @relation(name: "Supervisor_Order")
+
+  @@map("users")
+}
+
+model Order {
+  id                String   @id @default(uuid())
+  createdAt         DateTime @default(now())
+  finalUpdatedAt    DateTime @updatedAt
+  description       String   @db.Text
+  specialistComment String?
+  status            String
+  sector            String
+  rating            Int
+  priority          String
+  problemId         String
+  problem           Problem  @relation(fields: [problemId], references: [id])
+  supervisorId      String
+  supervisor        User     @relation(name: "Supervisor_Order", fields: [supervisorId], references: [id])
+  specialistId      String?
+  specialist        User?    @relation(name: "Specialist_Order", fields: [specialistId], references: [id])
+
+  @@map("orders")
+}
