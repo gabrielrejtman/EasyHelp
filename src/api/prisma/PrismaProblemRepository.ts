@@ -36,6 +36,27 @@ export default class PrismaProblemRepository implements ProblemRepository {
         })
     }
 
+    async getReportProblemsbyCategory() {
+        return await this.prisma.problem.groupBy({
+            by: ['category'],
+            _count: true
+        });
+    }
+    async getReportProblemsbyTitle() {
+        return await this.prisma.problem.groupBy({
+            by: ['title'],
+            _count: true
+        });
+    }
+
+    async getReportOrdersBySector() {
+        return await this.prisma.order.groupBy({
+            by: ['sector'],
+            _count: true
+        });
+    }
+    
+
     async updateProblem(id: string, problem: IUpdateProblem): Promise<Problem> {
         return await this.prisma.problem.update({
             where:{
