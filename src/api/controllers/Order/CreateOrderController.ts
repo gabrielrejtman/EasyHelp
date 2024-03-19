@@ -8,7 +8,7 @@ export default class CreateOrderController {
         readonly server: FastifyInstance,
         readonly useCase: CreateOrderUseCase 
     ) {
-        server.post('/order',  async ({body}) => {
+        server.post('/order', { preHandler: ensureAuthenticated },  async ({body}) => {
             const { description, status, rating, priority, sector, supervisorId, problemId } = body as any;
             const result = await useCase.execute({ description, status, rating, priority, sector, supervisorId, problemId });
 

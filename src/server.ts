@@ -36,6 +36,9 @@ import UpdateOrderController from "./api/controllers/Order/UpdateOrderController
 import { SearchsProblemsUseCase } from "./domain/usecases/Problem/SearchProblemUseCase";
 import { SearchUsersUseCase } from "./domain/usecases/User/SearchUserUseCase";
 import SearchUsersController from "./api/controllers/User/SearchUserController";
+import { HandleReportProblemsUseCase } from "./domain/usecases/HandleReportProblemsUseCase";
+import HandleReportProblems from "./api/controllers/HandleReportProblemsController";
+import HandleReportProblemsController from "./api/controllers/HandleReportProblemsController";
 
 
 const server: FastifyInstance = fastify();
@@ -72,6 +75,9 @@ new ShowProblemsController(server, showProblems);
 new UpdateProblemController(server, updateProblems);
 new SearchProblemController(server, searchProblems, searchProblemOpenSearchUseCase);
 
+//report
+const reportProblem = new HandleReportProblemsUseCase(problemRepository);
+new HandleReportProblemsController(server, reportProblem);
 
 // order
 const orderRepository = new PrismaOrderRepository();

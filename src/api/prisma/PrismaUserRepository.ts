@@ -3,7 +3,6 @@ import User from "../../domain/entities/User";
 import UserRepository from "../../domain/repositories/UserRepository";
 import { ICreateUser } from "../../domain/usecases/User/CreateUserUseCase";
 import { IUpdateUser } from "../../domain/usecases/User/UpdateUserUseCase";
-import dayjs from "dayjs";
 
 
 export default class PrismaUserRepository implements UserRepository {

@@ -8,6 +8,5 @@ export default interface Order {
     rating: number;
     priority: string;
     supervisorId: string;
-    specialistId?: string;
     problemId: string;
 }
