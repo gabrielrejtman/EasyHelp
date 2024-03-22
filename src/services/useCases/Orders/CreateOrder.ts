@@ -6,8 +6,8 @@ import { Api } from "../../Api";
 export class CreateOrder implements UseCase<ICreateOrder, Order> {
 
     async execute(data: ICreateOrder): Promise<Order> {
-        const { description, status, sector, rating, priority, userId, problemId } = data;
+        const { description, status, sector, rating, priority, supervisorId, problemId } = data;
 
-        return await Api.post('/order',{ description, status, sector, rating, priority, userId, problemId })
+        return await Api.post('/order', { description, status, sector, rating, priority, supervisorId, problemId })
     }
 }

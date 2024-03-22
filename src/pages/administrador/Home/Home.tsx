@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { BsFiletypePdf } from "react-icons/bs";
 import { Page, Path, Title } from '../../../components/GlobalComponents.style';
 import './styles.css';
@@ -9,6 +9,12 @@ import {HorizontalBarChart} from "../../../layout/Dashboard/HorizontalChart.tsx"
 import {VerticalBarChart} from "../../../layout/Dashboard/VerticalChart.tsx"
 
 import {ReportReview} from "../Reports/ReportLayout/ReportReview.tsx";
+
+import { GetDashboardData, ResultType } from "../../../services/useCases/Report/GetDashboardData.ts";
+import Problem from "../../../domain/entities/Problem.ts";
+import { GiSummits } from "react-icons/gi";
+import { sum } from "lodash";
+
 
 interface ButtonCreatePDFProps {
     children: React.ReactElement
@@ -33,7 +39,24 @@ const ButtonCreatePDF: React.FC<ButtonCreatePDFProps> = ({ children }) => {
 
 
 const Home: React.FC = () => {
+    const [dashboardData, setProblems] = useState<ResultType>();
 
+    useEffect(() => {
+        loadDashboardData();
+    }, []);
+
+    const getDashboardData = new GetDashboardData();
+
+    async function loadDashboardData() {
+        try {
+            const response = await getDashboardData.execute();
+            setProblems(response);
+        } catch (error) {
+            console.error("Falha ao carregar problemas:", error);
+        }
+    }
+
+   
     return (
         <Page>
             <Path>Home</Path>
@@ -51,9 +74,6 @@ const Home: React.FC = () => {
                 <input className='data-input'></input>
             </div>
 
-
-
-
             <div className='dashboard-grid'>
 
                 <div className='dashboard-item'>
@@ -65,18 +85,18 @@ const Home: React.FC = () => {
 
 
                     <HorizontalBarChart
-                        labels={['Maquina não liga', 'Rolamento de...', 'a1a1a1', 'a2a2a2']}
-                        data={[30, 10, 20, 12]}
+                        labels={['a', 'a', 'a', 'a']}
+                        data={[1,10,30,20]}
                         />
                 </div>
 
                 <div className='dashboard-item'>
                     <div className='dashboard-head'>
-                        <div className='dashboard-item-title'>Problemas mais frequente</div>
+                        <div className='dashboard-item-title'>Problemas mais frequentes</div>
                     </div>
                     <PieChart
-                        frequency={[4, 32]}
-                        mostCommonCategory={'elétrico'}
+                        frequency={[12, 30]}
+                        mostCommonCategory={"eletrico"}
                         />
                 </div>
 
@@ -85,8 +105,8 @@ const Home: React.FC = () => {
                         <div className='dashboard-item-title'>Setores com mais problemas</div>
                     </div>
                     <VerticalBarChart
-                        labels={['setor 1', 'setor 2', 'setor 3', 'setor 4']}
-                        data={[30, 10, 20, 12]} />
+                        labels={['a', 'a', 'a', 'a']}
+                        data={[1,10,30,20]} />
 
                 </div>
 
@@ -97,6 +117,7 @@ const Home: React.FC = () => {
                 </div>
 
             </div>
+            
         </Page>
     );
 };

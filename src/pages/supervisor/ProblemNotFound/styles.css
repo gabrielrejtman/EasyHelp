@@ -1,11 +1,11 @@
-.create-order-container{
+.create-order-container {
     padding-top: 20px;
     width: 900px;
     height: fit-content;
 
 }
 
-.create-order-header{
+.create-order-header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-color: #1E1F28;
@@ -15,32 +15,32 @@
     color: white;
 }
 
-.create-order-content{
+.create-order-content {
     background-color: #F0F0F0;
     padding: 15px;
 }
 
-.problem-input.disabled{
+.problem-input.disabled {
     background-color: #A9A9AC;
     color: #000;
 }
 
-.select.disabled{
+.select.disabled {
     background-color: #A9A9AC;
     color: #000;
 }
 
-.input-footer{
+.input-footer {
     display: flex;
     padding: 10px 5px 5px 10px;
 }
 
-#register-order-not-found{
+#register-order-not-found {
     padding: 0;
     margin: 0;
 }
 
-.evaluation-starts{
+.evaluation-starts {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -48,18 +48,18 @@
     padding-top: 16px;
 }
 
-.btn-star{
+.btn-star {
     cursor: pointer;
     outline: none;
     background-color: transparent;
     border: none;
 }
 
-.star-image{
+.star-image {
     width: 33px;
 }
 
-.input-header-problem-not-found{
+.input-header-problem-not-found {
     display: flex;
     padding-bottom: 20px;
     padding-top: 10px;
@@ -69,26 +69,12 @@
     margin-bottom: 20px;
 }
 
-.label-container{
-    background-color: #1E1F28;
-    color: white;
-    border-radius: 5px;
-    padding: 5px;
-    font-size:11px;
-    font-weight:600;
-    width: fit-content;
-}
 
-.containers-info{
-    background-color: #d9d9d9;
-    border-radius: 5px;
-}
-
-.description-container-order{
+.description-container-order {
     padding: 10px 5px 5px 10px;
 }
 
-.description-textarea-order{
+.description-textarea-order {
     width: 800px;
     height: 120px;
     outline: none;

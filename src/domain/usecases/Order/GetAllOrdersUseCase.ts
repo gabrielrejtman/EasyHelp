@@ -1,5 +1,5 @@
 import OrderRepository from "../../repositories/OrderRepository";
-import Order from "../../entities/Order";
+import { Order } from "@prisma/client";
 
 export class GetAllOrdersUseCase {
 
@@ -7,6 +7,7 @@ export class GetAllOrdersUseCase {
 
     async execute(): Promise<Order[]> {
 
-        return await this.OrderRepository.getAllOrders()
+        const result = await this.OrderRepository.getAllOrders();
+        return result;
     }
 }

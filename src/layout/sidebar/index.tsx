@@ -5,12 +5,12 @@ import { Sidebar, SidebarItem } from "./SideBar"
 import { SidebarPagesADM } from "../../pages/administrador/SideBarItens"
 import { SidebarPagesSupervisor } from "../../pages/supervisor/SideBarItens"
 import { SidebarPagesSpecialist } from "../../pages/specialist/SideBarItens"
-import { res } from "../../pages/Login/Login"
+import { user } from "../../pages/Login/Login"
 
 export const DashboardLayout = () => {
     let items: SidebarItem[]
 
-    switch(res){
+    switch (user.role) {
         case 'SUPERVISOR':
             items = SidebarPagesSupervisor
             break;
@@ -27,7 +27,7 @@ export const DashboardLayout = () => {
     return (
         <Layout>
             <Sidebar items={items} />
-            <Outlet/>
+            <Outlet />
         </Layout>
     )
 }

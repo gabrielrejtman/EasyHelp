@@ -9,6 +9,7 @@ import './styles.css'
 import {FaUserCircle} from "react-icons/fa";
 import Order from '../../../domain/entities/Order'
 import { ShowOrders } from '../../../services/useCases/Orders/ShowOrders'
+import { format } from 'date-fns';
 
 // Show Orders design
 
@@ -25,7 +26,7 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
                         {/* <p className='card-user-names'>{item.supervisor.name}</p> */}
                         {/* <p className='card-users-info'>{'#'+item.supervisor.id+' - '+item.supervisor.role}</p> */}
                         <p className='card-user-names'>Adenaldo Júnior</p>
-                        <p className='card-users-info'>{'# 1234 - supervisor'}</p>
+                        <p className='card-users-information'>{'# 1234 - supervisor'}</p>
                     </div>
                 </div>
 
@@ -45,8 +46,8 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
 
                 {/*Time*/}
                 <div>
-                    <div className='order-info'>Técnico solicitado: {item.createdAt?.toLocaleString()}</div>
-                    <div className='order-info'>Resolvido: {item.finalUpdatedAt?.toLocaleString()}</div>
+                <div className='order-info'>Técnico solicitado: {item.createdAt ? format(item.createdAt, 'HH:mm') : ''}</div>
+                    <div className='order-info'>Resolvido: {item.finalUpdatedAt ? format(item.finalUpdatedAt, 'HH:mm') : ''}</div>
                 </div>
 
 
@@ -58,7 +59,7 @@ const renderOrderCard = (item: Order, index: number): React.ReactNode => (
                         {/* <p className='card-user-names'>{item.technician.name}</p>
                         <p className='card-users-info'>{'#'+item.technician.id+' - '+item.technician.role}</p> */}
                         <p className='card-user-names'>Marcelo Pinto</p>
-                        <p className='card-users-info'># 12345 - técnico</p>
+                        <p className='card-users-information'># 12345 - técnico</p>
                     </div>
                 </div>
             </div>

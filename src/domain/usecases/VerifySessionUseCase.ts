@@ -11,13 +11,13 @@ export interface IUserData {
 
 export class VerifySessionUseCase {
 
-    constructor(private readonly userRepository: UserRepository) {}
+    constructor(private readonly userRepository: UserRepository) { }
 
     async execute(data: IUserData) {
         const { registration, password } = data;
 
         const user = await this.userRepository.getUser(registration);
-        
+
         if (!user) {
             return "Incorrect id or password";
         }
@@ -30,13 +30,13 @@ export class VerifySessionUseCase {
 
         // sets a token to validate user login
         const token = jwt.sign(
-            { id: user.id! }, 
-            "ffdea0c3bed13906e0d6e9a59a4a6909", 
+            { id: user.id! },
+            "ffdea0c3bed13906e0d6e9a59a4a6909",
             { expiresIn: '1h' }
         );
-        
+
         const { password: _, ...userLogin } = user;
-        
-        return user.role;
+
+        return user;
     }
 }

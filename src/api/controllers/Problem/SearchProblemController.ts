@@ -11,7 +11,7 @@ export default class SearchProblemController {
         readonly useCase: SearchsProblemsUseCase,
         readonly openSearch: SearchProblemOpenSearchUseCase
     ) {
-        server.post('/search', { preHandler: ensureAuthenticated }, async ({body}) => {
+        server.post('/search', async ({body}) => {
             const { title } = <any>body;
             const searchTerm = title;
 

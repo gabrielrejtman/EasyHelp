@@ -36,9 +36,8 @@ import UpdateOrderController from "./api/controllers/Order/UpdateOrderController
 import { SearchsProblemsUseCase } from "./domain/usecases/Problem/SearchProblemUseCase";
 import { SearchUsersUseCase } from "./domain/usecases/User/SearchUserUseCase";
 import SearchUsersController from "./api/controllers/User/SearchUserController";
-import { HandleReportProblemsUseCase } from "./domain/usecases/HandleReportProblemsUseCase";
-import HandleReportProblems from "./api/controllers/HandleReportProblemsController";
-import HandleReportProblemsController from "./api/controllers/HandleReportProblemsController";
+import { FindProblemUseCase } from "./domain/usecases/Problem/FindProblemUseCase";
+import FindProblemController from "./api/controllers/Problem/FindProblemController";
 
 
 const server: FastifyInstance = fastify();
@@ -69,15 +68,14 @@ const createProblem = new CreateProblemUseCase(problemRepository);
 const showProblems = new ShowProblemsUseCase(problemRepository);
 const updateProblems = new UpdateProblemUseCase(problemRepository);
 const searchProblems = new SearchsProblemsUseCase(problemRepository);
+const findProblems = new FindProblemUseCase(problemRepository)
 new DeleteProblemController(server, deleteProblem, deleteProblemOpenSearchUseCase);
 new CreateProblemController(server, createProblem, createProblemOpenSearchUseCase);
 new ShowProblemsController(server, showProblems);
 new UpdateProblemController(server, updateProblems);
 new SearchProblemController(server, searchProblems, searchProblemOpenSearchUseCase);
+new FindProblemController(server, findProblems)
 
-//report
-const reportProblem = new HandleReportProblemsUseCase(problemRepository);
-new HandleReportProblemsController(server, reportProblem);
 
 // order
 const orderRepository = new PrismaOrderRepository();
@@ -109,7 +107,7 @@ new DeleteUserController(server, deleteUser);
 const port = 3333//Number(process.env.PORT);
 
 try {
-    server.listen({port});
+    server.listen({ port });
     console.log(`Server is running on port http://localhost:${port}`);
 }
 catch (err) {

@@ -4,35 +4,36 @@ import './SideBar.css'
 import diderotLogo from '../../assets/DiderotLogo.svg';
 import Logout from '../../assets/icons/Logout.svg'
 import { FaUserCircle } from "react-icons/fa";
+import { user } from "../../pages/Login/Login"
+import { handleUserType } from '../../utils/UserTypeAdapter';
 
-export interface SidebarItem{
-    url:string;
-    icon:React.ReactNode;
-    name:string;
+export interface SidebarItem {
+    url: string;
+    icon: React.ReactNode;
+    name: string;
 }
 
-interface IProps{
-    items:SidebarItem[]
+interface IProps {
+    items: SidebarItem[]
 }
 
-function Sidebar({items}:IProps) {
-    const user = {name: "Pedro Gama", role: "Administrador"}
+function Sidebar({ items }: IProps) {
 
     return (
         <div>
             <div className='sidebar-container'>
                 <img src={diderotLogo} className='logo' />
                 <div className='user-container'>
-                    <FaUserCircle size={40}/>
+                    <FaUserCircle size={40} />
                     <div className='user-information'>
                         <p className='user-name'>{user.name}</p>
-                        <p className='user-role'>{user.role}</p>
+                        <p className='user-role'>{handleUserType(user.role)}</p>
                     </div>
                 </div>
-                
+
                 <ul className='nav-list'>
                     {items.map((item, index) => {
-                        return(
+                        return (
                             <li className='nav-item' key={index}>
                                 <NavLink to={item.url} className="nav-link">
                                     <div className='nav-link-icon'>{item.icon}</div>
@@ -42,8 +43,8 @@ function Sidebar({items}:IProps) {
                         )
                     })}
                     <div className='logout-container'>
-                        <NavLink to={'/'}  className="logout">
-                            <img src={Logout}/>
+                        <NavLink to={'/'} className="logout">
+                            <img src={Logout} />
                             <div className='logout-text'>Logout</div>
                         </NavLink>
                     </div>
@@ -53,4 +54,4 @@ function Sidebar({items}:IProps) {
     )
 }
 
-export {Sidebar}
+export { Sidebar }

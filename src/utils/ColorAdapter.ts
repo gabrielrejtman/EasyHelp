@@ -1,6 +1,6 @@
-export const handleColorDificult = (item : string | undefined) => {
+export const handleColorDificult = (item: string | undefined) => {
 
-    switch(item){
+    switch (item) {
 
         case "fácil":
             return "#4A83D1"

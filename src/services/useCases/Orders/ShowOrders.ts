@@ -1,4 +1,4 @@
-import Order from "../../../domain/entities/Order";
+import { Order } from "@prisma/client";
 import UseCase from "../../../domain/shared/usecase";
 import { Api } from "../../Api";
 

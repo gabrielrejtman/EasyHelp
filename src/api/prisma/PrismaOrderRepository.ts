@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import OrderRepository from "../../domain/repositories/OrderRepository";
-import Order from "../../domain/entities/Order";
+import { Order } from "@prisma/client";
 import { ICreateOrder } from "../../domain/usecases/Order/CreateOrderUseCase";
 import { IUpdateOrder } from "../../domain/usecases/Order/UpdateOrderUseCase";
 
@@ -16,16 +16,22 @@ export default class PrismaOrderRepository implements OrderRepository {
         return this.prisma.order.create({data: Order});
     }
     
-    getAllOrders(): Promise<Order[]> {
-        return this.prisma.order.findMany();
+    async getAllOrders(): Promise<Order[]> {
+        return await this.prisma.order.findMany({
+            include: {
+                supervisor: true
+            }
+        });
     }
 
-    updateOrder(id: string, Order: IUpdateOrder): Promise<Order> {
-        return this.prisma.order.update({
+    async updateOrder(id: string, status: string): Promise<Order> {
+        return await this.prisma.order.update({
             where: {
                 id,
             },
-            data: Order
+            data: {
+                status
+            }
         })
     }
 }

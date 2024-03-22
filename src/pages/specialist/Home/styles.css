@@ -1,34 +1,13 @@
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2);
-    display:flex;
-    justify-content: center;
+.card-specialist {
+    margin-bottom: 10px;
+    padding-top: 1px;
+    background-color: #F0F0F0;
+    border-radius: 8px;
+    height: 140px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.popup-inner {
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    background-color: #FFF;
-}
-
-.popup-inner .close-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-
-}
-
-.filter-order-specialist{
-    color: #000;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}

@@ -2,7 +2,7 @@
 import './styles.css';
 
 // Use Case of http request
-import {CreateOrder} from "../../../services/useCases/Orders/CreateOrder"
+import { CreateOrder } from "../../../services/useCases/Orders/CreateOrder"
 
 // Styled Components
 import { Page, Path, Title } from '../../../components/GlobalComponents.style';
@@ -14,17 +14,19 @@ import FullyStar from '../../../assets/icons/FullyStar.svg'
 // React
 import { useNavigate } from 'react-router-dom';
 import { FormEvent, useRef, useState } from 'react';
-import { ToastContainer, toast, Bounce} from 'react-toastify';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RatingModal from '../../../components/Modals/RatingModal';
 import { CreateProblem } from '../../../services/useCases/Problems/CreateProblem';
+import { FindProblem } from '../../../services/useCases/Problems/FindProblem';
+import Problem from '../../../domain/entities/Problem';
+import { user } from "../../Login/Login"
+import { Order } from '@prisma/client';
 
 export function ProblemNotFound() {
 
     //Input Refs to Create Order
-    const [category, setCategory] = useState<string>("default")
     const [priority, setPriority] = useState<string>("default")
-    const [difficulty, setDifficulty] = useState<string>("default")
 
     const descriptionRef = useRef<HTMLTextAreaElement>(null)
     const sectorRef = useRef<HTMLInputElement>(null)
@@ -50,7 +52,11 @@ export function ProblemNotFound() {
 
     const countingStars = () => {
         return stars.filter(star => star).length;
-    }      
+    }
+
+    function isOrder(obj: any): obj is Order {
+        return obj && typeof obj === 'object'
+    }
 
     const notifyError = () => {
         toast.error("Preencha todos os campos!", {
@@ -63,168 +69,159 @@ export function ProblemNotFound() {
             progress: undefined,
             theme: "light",
             transition: Bounce,
-            });
-        }
+        });
+    }
 
     const handleModal = () => {
-        if (!sectorRef.current?.value || priority==="default" || category === "default"){
+        if (!sectorRef.current?.value || priority === "default") {
             notifyError()
             return
         }
-        else{
+        else {
             setOpenRating(true)
         }
     }
 
-    const handleRegisterOrderNotFound = async (event: FormEvent) => {
-            event.preventDefault();
+    const handleRegisterOrderNotFound = async () => {
 
-            if (!descriptionRef.current?.value || !sectorRef.current?.value)
-                return
+        if (!sectorRef.current?.value)
+            return
 
-            const sector = sectorRef.current?.value
-            const description = descriptionRef.current?.value
-            const status = "pendente"
-            const rating = countingStars()
+        // Order info
+        const sector = sectorRef.current?.value
+        const description = descriptionRef.current?.value || "";
+        const status = "pendente"
+        const rating = countingStars()
 
-            // Creating the problem if it doesn't exist
-            const createProblem = new CreateProblem()
-            const title = "Problema não encontrado"
-            const descriptionProblem = "Problema não registrado no sistema"
+        // Creating "problem not found" if it doesn't exist
+        const createProblem = new CreateProblem()
+        const title = "Problema não encontrado"
+        const descriptionProblem = "Problema não registrado no sistema"
+        const difficulty = "não encontrado"
+        const category = "outro"
 
-            const createProblemRes = await createProblem.execute({title, description : descriptionProblem, difficulty, category})
-                
+        let res: boolean = false
 
+        try {
+            const createProblemRes = await createProblem.execute({ title, description: descriptionProblem, difficulty, category })
 
-            try {
-                const createOrder = new CreateOrder()
-                //await createOrder.execute({ description, status, sector, rating, priority, userId, problemId })
-                
-            } catch (err) {
-                console.error(err);
+            const findProblem = new FindProblem()
+
+            const findRes = await findProblem.execute({ title })
+            const createOrder = new CreateOrder()
+
+            if (findRes != undefined && user != undefined) {
+                if (typeof findRes.id === 'string' && typeof user.id === 'string') {
+                    const response = await createOrder.execute({ description, status, sector, rating, priority, supervisorId: user.id, problemId: findRes.id })
+                    res = true
+                }
             }
-    
+
+        } catch (err) {
+            console.error(err);
+        }
+        if (res)
             handleCancel();
     }
 
     return (
         <Page>
-            <ToastContainer/>
+            <ToastContainer />
             <Path>Home / Problema não encontrado</Path>
             <Title>Problema Não Encontrado</Title>
-            
-                <div className='create-order-container'>
-                    <div className='create-order-header'>
-                        Dados da Ocorrência
-                    </div>
 
-                    <div className="create-order-content">
-                        <div className='containers-info'>
-                            <p className='label-container'>Dados do Problema</p>
-
-                            <div className="input-header-problem-not-found">
-
-                                <div className="problem-input-container">
-                                    <p className="label">Problema</p>
-                                    <input className="problem-input disabled" value="Problema não encontrado" disabled={true}/>
-                                </div>
-
-                                <div className="select-container">
-                                    <p className="label">Categoria</p>
-                                    <select className="select" value={category} onChange={e => setCategory(e.target.value)}>
-                                        <option value="default"></option>
-                                        <option value="elétrico">Elétrico</option>
-                                        <option value="mecânico">Mecânico</option>
-                                        <option value="eletrônico">Eletrônico</option>
-                                        <option value="sistema">Sistema</option>
-                                    </select>
-                                </div>
-
-                                <div className="select-container">
-                                    
-                                    <p className="label">Dificuldade</p> 
-
-                                    <select className="select" value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-                                        <option value="default"></option>
-                                        <option value="fácil">Fácil</option>
-                                        <option value="médio">Médio</option>
-                                        <option value="difícil">Difícil</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='containers-info'>
-                            <p className='label-container'>Dados da Ocorrência</p>
-
-                            <div className="input-footer">
-
-                                <div className="problem-input-container">
-                                    <p className="label">Status</p>
-                                    <input className='select disabled' value="Pendente" disabled={true}/>
-                                </div>
-
-                                <div className="select-container">
-
-                                    <p className="label">Prioridade</p>
-
-                                    <select className="select" value={priority} onChange={e => setPriority(e.target.value)}>
-                                        <option value="default"></option>
-                                        <option value="baixa">Baixa</option>
-                                        <option value="média">Média</option>
-                                        <option value="alta">Alta</option>
-                                    </select>
-
-                                </div>
-
-                                <div className="select-container">
-                                    <p className="label">Setor</p>
-                                    <input className='select' ref={sectorRef}/>
-                                </div>
-
-                            </div>
-
-                            <div className="description-container-order">
-                                <p className="label">Descrição (Opcional)</p>
-                                <textarea className="description-textarea-order" ref={descriptionRef}/>
-                            </div>
-                        
-                        </div>
-
-                    </div>
-
-                    <p style={{fontSize:"12px", fontWeight:"600"}}>*Prioridade alta: parada na linha</p>
-
-                    <div className="btn-bar">
-                        <button className="btn-cancel" onClick={handleCancel}>
-                            Cancelar
-                        </button>
-                        <button className="btn-save" onClick={handleModal}>
-                                Enviar
-                        </button>
-                    </div>
-                    
+            <div className='create-order-container'>
+                <div className='create-order-header'>
+                    Dados da Ocorrência
                 </div>
 
-                <RatingModal isOpen={openRating}>
-                        <div className='evaluation-starts'>
-                            {stars.map((filled, index) => (
-                                <button key={index} className='btn-star' onClick={() => handleStarClicked(index)}>
-                                    <img
-                                        src={filled ? FullyStar : StarOutlined}
-                                        alt={`Star ${index + 1}`}
-                                        className="star-image"
-                                    />
-                                </button>
-                            ))}
+                <div className="create-order-content">
+                    <div className="input-header-problem-not-found">
+
+                        <div className="problem-input-container">
+                            <p className="label">Problema</p>
+                            <input className="problem-input disabled" value="Problema não encontrado" disabled={true} />
                         </div>
 
-                        <div className="btn-bar">
-                            <button className="btn-save" onClick={() => handleRegisterOrderNotFound}>
-                                    Salvar
-                            </button>
+                        <div className="select-container">
+                            <p className="label">Categoria</p>
+                            <input className='select disabled' value="outro" disabled={true} />
                         </div>
-                </RatingModal>
+
+                        <div className="select-container">
+
+                            <p className="label">Dificuldade</p>
+                            <input className='select disabled' value="não encontrado" disabled={true} />
+
+                        </div>
+                    </div>
+
+                    <div className="input-footer">
+
+                        <div className="problem-input-container">
+                            <p className="label">Status</p>
+                            <input className='select disabled' value="pendente" disabled={true} />
+                        </div>
+
+                        <div className="select-container">
+
+                            <p className="label">Prioridade</p>
+
+                            <select className="select" value={priority} onChange={e => setPriority(e.target.value)}>
+                                <option value="default"></option>
+                                <option value="baixa">Baixa</option>
+                                <option value="média">Média</option>
+                                <option value="alta">Alta</option>
+                            </select>
+
+                        </div>
+
+                        <div className="select-container">
+                            <p className="label">Setor</p>
+                            <input className='select' ref={sectorRef} />
+                        </div>
+
+                    </div>
+
+                    <div className="description-container-order">
+                        <p className="label">Descrição (Opcional)</p>
+                        <textarea className="description-textarea-order" ref={descriptionRef} />
+                    </div>
+
+                </div>
+
+                <p style={{ fontSize: "12px", fontWeight: "600" }}>*Prioridade alta: parada na linha</p>
+
+                <div className="btn-bar">
+                    <button className="btn-cancel" onClick={handleCancel}>
+                        Cancelar
+                    </button>
+                    <button className="btn-save" onClick={handleModal}>
+                        Enviar
+                    </button>
+                </div>
+
+            </div>
+
+            <RatingModal isOpen={openRating}>
+                <div className='evaluation-starts'>
+                    {stars.map((filled, index) => (
+                        <button key={index} className='btn-star' onClick={() => handleStarClicked(index)}>
+                            <img
+                                src={filled ? FullyStar : StarOutlined}
+                                alt={`Star ${index + 1}`}
+                                className="star-image"
+                            />
+                        </button>
+                    ))}
+                </div>
+
+                <div className="btn-bar">
+                    <button className="btn-save" onClick={() => handleRegisterOrderNotFound()}>
+                        Salvar
+                    </button>
+                </div>
+            </RatingModal>
         </Page>
     )
 }

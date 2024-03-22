@@ -10,9 +10,7 @@ export class UpdateOrderUseCase {
 
     constructor(private readonly OrderRepository: OrderRepository) {}
 
-    async execute(id: string, data: IUpdateOrder): Promise<Order> {
-        const { status } = data;
-
-        return await this.OrderRepository.updateOrder(id, { status });
+    async execute(id: string, status: string): Promise<Order> {
+        return await this.OrderRepository.updateOrder(id, status);
     }
 }

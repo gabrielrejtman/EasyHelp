@@ -32,7 +32,7 @@ export function RegisterSupervisor() {
             <Path>Usuários / Novo Cadastro</Path>
             <Title>Novo Cadastro de Supervisor</Title>
             <div className='addSupervisor-header'>
-                <p className='addSupervisor-title'>Register Supervisor</p>
+                <p className='addSupervisor-title'>Cadastro de Supervisor</p>
             </div>
 
             <div className='addSupervisor-body'>
